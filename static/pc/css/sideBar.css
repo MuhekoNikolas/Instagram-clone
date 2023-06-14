@@ -96,6 +96,7 @@
 .sideBar.searchMenuActive .sideBarSearchLink svg, .sideBar.notificationsMenuActive .sideBarNotificationsLink svg {
     position: relative;
     top:2px;
+    left:-2px;
 }
 
 .sideBarLink svg{
@@ -112,6 +113,18 @@
 .sideBarLink:hover{
     background: var(--sideBarLinksHoverColor);
 }
+
+.sideBarLink .activeIcon, .sideBarLink.active .inActiveIcon{
+    display:none !important;
+}
+
+
+.sideBarLink.active .activeIcon, .sideBarLink .inActiveIcon{
+    display:flex !important;
+}
+
+
+
 
 .sideBarLinkIconSection{
     display:flex;

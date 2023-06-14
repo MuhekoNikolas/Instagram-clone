@@ -1,0 +1,353 @@
+
+
+<style>
+
+    .followRecommendationsDiv{
+        position:relative;
+        top:0px;
+        left:0px;
+
+        width: var(--followRecommendationBarWidth);
+        height:fit-content;
+        min-height:80vh;
+
+
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        gap:10px;
+
+
+        padding:0px 0px 10px 0px;
+
+        background:none;
+    }
+
+    .followRecommendationsDiv > div{
+        width: calc( var(--followRecommendationBarWidth) - 40px );
+
+        margin-left:-5px;
+
+        background:red;
+    }
+
+    .loggedInUserBlock, .recommendedUserBlock, .postAuthorBlock{
+        margin-top:50px;
+
+        height:70px;
+
+        display:flex;
+        align-items:center;
+        gap:15px;
+
+        background:none !important;
+    }
+
+    .profileBlock{
+        width:60px;
+        height:60px;
+
+        border-radius:50px;
+
+        background:cyan;
+    }
+
+    .userInfoBlock{
+        width:150px;
+        height:37px;
+
+        display:flex;
+        flex-direction:column;
+
+        background:none;
+    }
+
+    .userInfoBlock *{
+        margin:0px;
+
+        font-size:14px;
+        line-height:18px;
+        font-family:var(--instagramFont);
+        font-weight:600;
+    }
+
+    .userInfoBlock h3{
+
+    }
+
+    .userInfoBlock h4{
+        font-weight:400;
+        color:var(--gray);
+
+        margin-top:-3px;
+    }
+
+    .switchAccountBlock, .postOptionsBlock{
+        position:relative;
+
+        width:auto;
+        height:30px;
+        padding:10px;
+
+        margin-left:auto;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        background:none;
+    }
+
+    .switchAccountBlock h4{
+        margin:0px;
+
+        cursor: pointer;
+        color:var(--blue);
+        font-size:12px;
+        font-weight:600;
+        font-family:var(--instagramFont);
+    }
+
+    .followRecommendationsBlock{
+        height:fit-content !important;
+        min-height:280px !important;
+        
+        padding-bottom:10px;
+
+        background:none !important;
+    }
+
+    .followRecommendationsBlock .info{
+        width:100%;
+        height:30px;
+
+        margin:0px; 
+        margin-bottom:5px;
+
+        display:flex;
+        gap:20px;
+        align-items:center;
+    
+
+        background:none;
+    }
+
+    .followRecommendationsBlock .info *{
+        margin:0px;
+
+
+        color:var(--gray);
+        font-size:14px;
+        font-weight:600;
+        line-height:18px;
+        font-family:var(--instagramFont);
+    }
+
+    .followRecommendationsBlock .info h4{
+        color:black;
+        margin-left:auto;
+
+        line-height:16px;
+
+        padding:10px;
+
+        cursor:pointer;
+    }
+
+    .followRecommendations{
+
+        display:flex;
+        flex-direction:column;
+
+        margin:0px auto;
+
+        width:100%;
+        height:220px;
+
+        background:none;
+    }
+
+    .recommendedUserBlock{
+        margin:0px !important;
+
+        height:50px !important;
+
+        cursor:pointer;
+
+        background:none !important;
+    }
+
+    .recommendedUserBlock .profileBlock{
+        width:32px;
+        height:32px;
+    }
+
+    .linksBlock{
+        height:35px;
+
+        display:flex;
+        column-gap:12px;
+        flex-wrap:wrap;
+
+        background:none !important;
+    }
+
+    .linksBlock .link{
+
+        width:fit-content;
+        height:fit-content;
+
+        margin:0px;
+
+        color:var(--lightGray);
+        text-decoration:none;
+        font-family:var(--instagramFont);
+        font-weight:400;
+        line-height:16px;
+        font-size:12px;
+    }
+
+    .linksBlock a:not(:last-child)::after{
+        content:"";
+        position:absolute;
+
+        transform: translate(6px, 9px);
+
+        width:1px;
+        height:1px;
+
+        border-radius:50px;
+
+        background:var(--lightGray);
+    }
+
+    .copyrightBlock{
+        height:20px;
+
+        display:flex;
+        align-items:center;
+
+        background:none !important;
+    }
+
+    .copyrightBlock h4{
+        margin:0px;
+
+        color:var(--lightGray);
+        font-family:var(--instagramFont);
+        font-weight:400;
+        line-height:16px;
+        font-size:12px;
+
+    }
+
+</style>
+
+<div class="followRecommendationsDiv">
+    <div class="loggedInUserBlock">
+        <div class="profileBlock">
+
+        </div>
+        <div class="userInfoBlock">
+            <h3>mxrningstar</h3>
+            <h4>Nick</h4>
+        </div>
+        <div class="switchAccountBlock">
+            <h4>Switch</h4>
+        </div>
+    </div>
+
+
+    <div class="followRecommendationsBlock">
+        <div class="info">
+            <h3>Suggested for you</h3>
+            <h4>See all</h4>
+        </div>
+
+        <div class="followRecommendations">
+
+            <div class="recommendedUserBlock">
+                <div class="profileBlock">
+        
+                </div>
+                <div class="userInfoBlock">
+                    <h3>Sophia</h3>
+                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
+                </div>
+                <div class="switchAccountBlock">
+                    <h4>Follow</h4>
+                </div>
+            </div>
+
+            <div class="recommendedUserBlock">
+                <div class="profileBlock">
+        
+                </div>
+                <div class="userInfoBlock">
+                    <h3>Julie</h3>
+                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
+                </div>
+                <div class="switchAccountBlock">
+                    <h4>Follow</h4>
+                </div>
+            </div>
+
+            <div class="recommendedUserBlock">
+                <div class="profileBlock">
+        
+                </div>
+                <div class="userInfoBlock">
+                    <h3>Julie</h3>
+                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
+                </div>
+                <div class="switchAccountBlock">
+                    <h4>Follow</h4>
+                </div>
+            </div>
+
+            <div class="recommendedUserBlock">
+                <div class="profileBlock">
+        
+                </div>
+                <div class="userInfoBlock">
+                    <h3>Julie</h3>
+                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
+                </div>
+                <div class="switchAccountBlock">
+                    <h4>Follow</h4>
+                </div>
+            </div>
+
+            <div class="recommendedUserBlock">
+                <div class="profileBlock">
+        
+                </div>
+                <div class="userInfoBlock">
+                    <h3>Julie</h3>
+                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
+                </div>
+                <div class="switchAccountBlock">
+                    <h4>Follow</h4>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="linksBlock">
+        <a class="link" href="#">About</a>
+        <a class="link" href="#">Help</a>
+        <a class="link" href="#">Press</a>
+        <a class="link" href="#">API</a>
+        <a class="link" href="#">Jobs</a>
+        <a class="link" href="#">Privacy</a>
+        <a class="link" href="#">Terms</a>
+        <a class="link" href="#">Locations</a>
+        <a class="link" href="#">Language</a>
+        <a class="link" href="#">Meta Verified</a>
+    </div>
+    <div class="copyrightBlock">
+        <h4>© 2023 INSTAGRAM FROM META</h4>
+    </div>
+</div>

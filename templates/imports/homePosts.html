@@ -1,0 +1,359 @@
+
+
+<style>
+    .homePost{
+        position:relative;
+
+        width:500px;
+        height:auto;
+        min-height:600px;
+
+        display:block;
+        margin:0px auto;
+
+        margin-bottom:10px;
+
+        border-bottom:1px solid var(--lightGray);
+
+        background:white;
+    }
+
+    .homePost > div{
+
+        width:100%;
+
+        height:fit-content;
+        min-height:30px;
+
+        margin:10px auto 0px auto;
+
+        background:green;
+    }
+
+    .postAuthorAndInfoSection{
+        height:fit-content;
+
+        
+        background:none !important;
+    }
+
+    .postAuthorBlock{
+        height:40px !important;
+    }
+
+    .postAuthorBlock .profileBlock{
+        width:34px;
+        height:34px;
+
+        z-index:2;
+
+        background:none;
+    }
+
+    .postAuthorBlock .profileBlock, .storiesSection .stories .story .authorPfp, .searchResultBanner{
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .postAuthorBlock .profileBlock::before, .storiesSection .stories .story .authorPfp::before, .searchResultBanner::before{
+        content:"";
+        position:absolute;
+        top:4px;
+        left:3px;
+
+        width:inherit;
+        height:inherit;
+
+        border-radius: 50px;
+        background-image: linear-gradient(to right, orange, purple) !important;
+        background-clip: padding-box !important;
+        box-shadow: 0 0 0 2px transparent inset;
+
+        transform:scale(1.1);
+
+        background:none;
+    }
+
+    .postAuthorBlock .profileBlock::before{
+        left:2.5px;
+        transform:scale(1.15);
+    }
+
+    .postAuthorBlock .profileBlock::after, .storiesSection .stories .story .authorPfp::after, .searchResultBanner::after{
+        content:"";
+        position:absolute;
+        top:2.8px;
+        left:1.6px;
+
+        width:inherit;
+        height:inherit;
+
+        border:1.5px solid white;
+        border-radius:50px;
+
+        background:blue;
+    }
+
+    .postAuthorBlock .userInfoBlock{        
+        min-width:fit-content !important;
+    }
+
+    .postAuthorBlock .userInfoBlock h3{
+        display:flex;
+        color:var(--lightBlack);
+    }
+
+    .postAuthorBlock .userInfoBlock h3 span{
+        color:var(--gray);
+    }
+
+    .badgesSection span{
+        position:relative;
+        top:3px;
+
+        margin-left:3px;
+
+        display:flex;
+        width:12px;
+        height:12px;
+    }
+
+    .verifiedBadge{
+        background: url("/static/images/iconsSprite2.png");
+        background-size: 440px 411px;
+        background-position: -428px -142px;
+    }
+
+
+    .seperatorDot{
+        width:12px;
+        height:18px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        border-radius:50px;
+
+        font-size:5em;
+
+        background:none;
+    }
+
+    .postAuthorBlock .userInfoBlock h4{
+        color:black;
+        font-size:12px;
+        font-weight:400;
+        line-height:16px;
+    }
+
+    .postOptionsBlock svg{
+        width:24px;
+        height:24px;
+        
+        cursor:pointer;
+    }
+
+    .postContentSection{
+        height:fit-content !important;
+        min-height:600px;
+
+        background:none !important;
+    }
+
+    .postContentSection .postPosts{
+        height:fit-content;
+        min-height:400px;
+
+        border-radius:5px;
+
+        background:cyan;
+    }
+
+    .postContentSection .postLikesAndCommentButtons{
+        height:80px;
+
+        display:flex;
+        flex-direction: column;
+
+        background:none !important;
+    }
+
+    .postContentSection .postLikesAndCommentButtons .buttonsSection{
+        height:45px;
+
+        display:flex;
+        align-items:center;
+
+        margin:0px;
+        margin-top:5px;
+    }
+
+    .postContentSection .postLikesAndCommentButtons .buttonsSection div{
+        width:50px;
+        height:45px;
+
+        display:flex;
+        gap:15px;
+        align-items: center;
+
+        background:none;
+    }
+
+    .postContentSection .postLikesAndCommentButtons .buttonsSection div span svg{
+        width:24px;
+        height:24px;
+
+        cursor:pointer;
+    }
+
+    .postContentSection .postLikesAndCommentButtons .buttonsSection .left{
+        width:125px;
+    }
+
+    .postContentSection .postLikesAndCommentButtons .buttonsSection .right{
+        width:30px;
+
+        margin-left:auto;
+    }
+
+    .likesSection{
+        margin:0px;
+
+        color:black;
+        font-size:14px;
+        line-height:18px;
+        font-weight:600;
+        font-family:var(--instagramFont);
+
+    }
+
+    .postCaptionAndCommentsSection{
+        margin-top:-5px !important;
+
+        display:flex;
+        flex-direction:column;
+
+        height:fit-content !important;
+
+        background:white !important;
+    }
+
+    .postCaption{
+        color:black;
+        font-size:14px;
+        font-weight:400;
+        font-family:var(--instagramFont);
+    }
+
+    .postCaption .postAuthorName{
+        font-weight:600;
+    }
+
+    .viewAllCommentsSentence{
+        color:var(--gray) !important;
+
+        font-size:14px;
+        line-height:18px;
+        font-weight:400;
+        font-family:var(--instagramFont);
+
+        margin:10px 0px;
+    }
+
+    .postAddCommentInput, .postAddCommentInput:focus-visible{
+        position:relative;
+
+        border-radius:0px;
+
+        height:auto;
+        min-height:14px !important;
+        max-height:80px;
+
+        border:none;
+        outline: none;
+
+        color:black;
+        font-family: var(--instagramFont);
+        font-size:14px;
+
+        resize:none;
+
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+
+        background:none;
+    }
+
+    .postAddCommentInput::-webkit-scrollbar, .postAddCommentInput:focus-visible::-webkit-scrollbar{
+        width:1px;
+    }
+
+</style>
+
+
+<div class="homePost">
+    <div class="postAuthorAndInfoSection">
+        <div class="postAuthorBlock">
+            <div class="profileBlock">
+    
+            </div>
+            <div class="userInfoBlock">
+                <h3>
+                    niko                   
+                    <span class="badgesSection">
+                        <span class="verifiedBadge"></span>
+                    </span>
+                    <span class="seperatorDot">•</span>
+                    <span class="postedAtSection">2 h</span>
+                </h3>
+                <h4 class="description" style="font-size:12px;">Original Audio</h4>
+            </div>
+            <div class="postOptionsBlock">
+                <h4><svg aria-label="More Options" class="_ab6-" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg></h4>
+            </div>
+        </div>
+    </div>
+    <div class="postContentSection">
+        <div class="postPosts">
+
+        </div>
+        <div class="postLikesAndCommentButtons">
+            <div class="buttonsSection">
+                <div class="left">
+                    <span class="likeSVG">
+                        <svg aria-label="Like" class="x1lliihq x1n2onr6" color="rgb(38, 38, 38)" fill="rgb(38, 38, 38)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Like</title><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
+                    </span>
+                    <span class="commentSVG">
+                        <svg aria-label="Comment" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Comment</title><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    </span>
+                    <span class="shareSVG">
+                        <svg aria-label="Share Post" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Share Post</title><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+                    </span>
+                </div>
+                <div class="right">
+                    <span class="saveSVG">
+                        <svg aria-label="Save" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Save</title><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+                    </span>
+                </div>
+            </div>
+            <h3 class="likesSection">
+                <span class="likesNumber">2,994,984</span>
+                likes
+            </h3>
+
+        </div>
+    </div>
+    <div class="postCaptionAndCommentsSection">
+        <span class="postCaption">
+            <span class="postAuthorName">niko</span>
+            Hello this is a post for the first time
+        </span>
+        <span class="viewAllCommentsSentence">
+            View all <span class="commentCount">89,031</span> comments
+        </span>
+
+        <textarea aria-label="Add a comment…" placeholder="Add a comment…" class="postAddCommentInput" dir="" autocomplete="off" autocorrect="off"></textarea>
+    </div>
+</div>

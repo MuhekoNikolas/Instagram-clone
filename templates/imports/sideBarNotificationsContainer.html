@@ -1,0 +1,140 @@
+
+
+
+<style>
+    .sideBarNotificationsContainer{
+        position:fixed;
+        top:0px;
+        left:70px;
+
+        width:400px;
+        height:100vh;
+
+        border-left:1px solid var(--lightGray);
+
+        border-radius:0px 20px 20px 0px;
+
+        z-index:800;
+
+        display:none;
+
+        box-shadow:10px 2px 20px rgba(0,0,0,0.1);
+
+        background:var(--white);
+    }
+
+    .sideBar.notificationsMenuActive .sideBarNotificationsContainer{
+        display:block;
+    }
+
+    .menuKeyWordSection{
+        position:relative;
+        width:90%;
+        height:50px;
+
+        display:flex;
+        align-items: center;
+
+        margin:0px auto;
+        margin-top:30px;
+        margin-bottom:10px;
+
+        background:none;
+    }
+
+    .menuKeyWordSection h3{
+        color:black;
+        font-size:24px;
+        font-family:var(--instagramFont);
+        font-weight:600;
+        line-height:30px;
+        text-align:start;
+    }
+
+    .followRequestsNotifications{
+        width:90%;
+        height:100px;
+
+        display:flex;
+        column-gap:5px;
+        align-items:center;
+
+        margin:0px auto;
+
+        background:white;
+    }
+
+
+
+    .pfpsSection{
+        position:relative;
+        width:60px;
+        height:60px;
+
+        border-radius:10px;
+
+        display:flex;
+        justify-content:center;
+        align-items:Center;
+
+        background: rgba(255, 0, 0, .5);
+    }
+
+    .pfpsSection::before, .pfpsSection::after{
+        content:"";
+        position:absolute;
+
+        width:35px;
+        height:35px;
+
+        border-radius:50px;
+
+        background:gray;
+    }
+
+    .pfpsSection::before{
+        left:7px;
+        top:5px;
+    }
+
+    .pfpsSection::after{
+        right:6px;
+        top:17px;
+
+        border:2px solid var(--white);
+
+        background:yellow;
+    }
+
+    .namesSection{
+        width:100px;
+        height:50px;
+
+        background:red;
+    }
+
+</style>
+
+<div class="sideBarNotificationsContainer">
+    <div class="menuKeyWordSection">
+        <h3>Notifications</h3>
+    </div>
+
+    <div class="followRequestsNotifications">
+        <div class="pfpsSection">
+
+        </div>
+        <div class="namesSection">
+f
+        </div>
+        <div class="iconsSection">
+            f
+
+        </div>
+    </div>
+
+    <div class="notifications">
+
+    </div>
+
+</div>

@@ -1,0 +1,143 @@
+
+
+.sideBar{
+    position:fixed;
+    top:0px;
+    left:0px;
+
+    width:var(--sideBarWidth);
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    align-items:start;
+
+    border-right:1px solid var(--lightGray);
+
+    z-index: 600;
+
+
+    background:var(--white);
+}
+
+
+.sideBarInstagramLogoSection{
+    position:relative;
+    top:0px;
+    left:0px;
+
+    width: calc( var(--sideBarWidth) - 40px ) ;
+    height:fit-content;
+
+
+    display:inline-block;
+    align-items:center;
+
+    margin-bottom:10px;
+
+    background:var(--white);;
+}
+
+.sideBarInstagramLogoSection svg{
+    margin-left:-10px;
+    margin-top:45px;
+}
+
+.sideBarLinksSection{
+    position:relative;
+
+    width: calc( var(--sideBarWidth) - 40px );
+    height:500px;
+
+    align-self:center;
+
+    background:none;
+}
+
+
+.sideBarLink{
+    position:relative;
+
+    width:100%;
+    height:50px;
+
+    display:grid;
+    grid-template-columns:50px 100px;
+
+    padding-left:5px;
+    margin-left: -4px;
+    margin-bottom:3px;
+
+    cursor:pointer;
+
+    border-radius:5px;
+
+    background:none;
+}
+
+.sideBar.searchMenuActive .sideBarLink, .sideBar.notificationsMenuActive .sideBarLink{
+    width:40px;
+
+    margin-left:-8px;
+
+    overflow-x:hidden;
+
+    padding-right:3px;
+}
+
+.sideBar.searchMenuActive .sideBarSearchLink{
+    border:1px solid var(--lightGray);
+}
+
+.sideBar.notificationsMenuActive .sideBarNotificationsLink{
+    border:1px solid var(--lightGray);
+}
+
+.sideBar.searchMenuActive .sideBarSearchLink svg, .sideBar.notificationsMenuActive .sideBarNotificationsLink svg {
+    position: relative;
+    top:2px;
+}
+
+.sideBarLink svg{
+    height:30px;
+    width:30px;
+
+    margin-left:-5px;
+}
+
+.sideBarLink svg use{
+    fill: none; stroke: currentcolor; stroke-linejoin: round; stroke-width: 1; 
+}
+
+.sideBarLink:hover{
+    background: var(--sideBarLinksHoverColor);
+}
+
+.sideBarLinkIconSection{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.sideBarLinkName{
+    display:flex;
+    justify-content:start;
+    align-items:center;
+
+    height:45px;
+
+    font-family:var(--instagramFont);
+    font-weight:400;
+    font-size:16px;
+    line-height:24px;
+}
+
+
+.sideBarLink.active svg use{
+    color: rgb(0, 0, 0);
+    fill: rgb(0, 0, 0);
+}
+
+.sideBarLink.active .sideBarLinkName{
+    font-weight:700;
+}

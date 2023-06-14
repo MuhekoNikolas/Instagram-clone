@@ -1,0 +1,252 @@
+
+
+<style>
+    .sideBarSearchContainer{
+        position:fixed;
+        top:0px;
+        left:70px;
+
+        width:400px;
+        height:100vh;
+
+        border-left:1px solid var(--lightGray);
+
+        border-radius:0px 20px 20px 0px;
+
+        z-index:800;
+
+        display:none;
+
+        box-shadow:10px 2px 20px rgba(0,0,0,0.1);
+
+        background:var(--white);
+    }
+
+    .sideBar.searchMenuActive .sideBarSearchContainer{
+        display:block;
+    }
+
+    .menuKeyWordSection{
+        position:relative;
+        width:90%;
+        height:50px;
+
+        display:flex;
+        align-items: center;
+
+        margin:0px auto;
+        margin-top:30px;
+        margin-bottom:30px;
+
+        background:none;
+    }
+
+    .menuKeyWordSection h3{
+        color:black;
+        font-size:24px;
+        font-family:var(--instagramFont);
+        font-weight:600;
+        line-height:30px;
+        text-align:start;
+    }
+
+    .searchInputSection{
+        position:relative;
+
+        width:90%;
+        height:50px;
+
+        margin:0px auto;
+
+        background:none;
+    }
+
+    .searchInputSection .searchInput{
+        width: calc( 100% - 40px );
+        height:34px;
+
+        border-radius:8px;
+        border:none;
+        outline:none !important;
+
+        padding:5px 20px !important;
+
+        color:black;
+        font-size:16px;
+
+        background:var(--lightLightGray);
+    } 
+
+    .searchInputSection .searchInput::-webkit-input-placeholder, .searchInputSection .searchInput:focus::-webkit-input-placeholder, .searchInputSection div span:focus, .searchInputSection div span{
+        color: var(--lightGray);
+        font-size: 16px;
+        font-family:var(--instagramFont);
+        font-weight: 300;
+        opacity: 1;
+    }
+
+    .searchInputSection > div{
+        position:relative;
+
+        width: calc( 100% - 10px );
+        height:44px;
+
+        cursor:text;
+
+        display:flex;
+        align-items: center;
+
+        margin-top:-44px;
+        padding-left:10px;
+
+        border-radius:8px;
+
+        background:var(--lightLightGray);
+    }
+
+    .searchInputSection div div, .searchInputSection div div svg{
+
+        width:20px;
+        height:20px;
+
+        display:flex;
+        margin-top:.5px;
+        margin-right:4px;
+
+        background:none;
+    }
+
+
+    .searchResults{
+        position:relative;
+        left: calc( 15px / 2 );
+
+        width: calc( 90% + 15px );
+        height: calc( 100vh - 195px );
+
+        margin:0px auto;
+        margin-top:5px;
+        padding-top:10px;
+        padding-bottom:10px;
+        /* margin-left: calc( 15px / 2 ) ; */
+
+        display:flex;
+        flex-direction: column;
+        row-gap:5px;
+
+        overflow:hidden;
+        overflow-y:auto;
+
+        border-top:1px solid var(--lightGray);
+
+        background:none;
+    }
+
+    .searchResult{
+        width:100%;
+        min-height:60px;
+        max-height:60px;
+
+        margin:0px 0px;
+
+        display:flex;
+        align-items:center;
+        /* justify-content: center; */
+
+        cursor:pointer;
+
+        background:none;
+    }
+
+    .searchResult:hover{
+        background:rgba(239, 239, 239, 0.5);
+    }
+
+
+    .searchResultBanner{
+        width:44px;
+        height:44px;
+
+        margin-top:-5px;
+        margin-right:10px;
+        margin-left:2px;
+
+        background:none;
+    }
+
+    .searchResultBanner::before{
+        transform: scale(1.15) !important;
+    }
+
+    .searchResultBanner::after{
+        left:1.9px !important;
+    }
+
+    .searchResultInfo{
+        position:relative;
+        width:250px;
+        height:40px;
+
+        background:none;
+    }
+
+    .searchResultInfo *{
+        margin:0px;
+        
+        font-family:var(--instagramFont);
+        line-height:18px;
+        font-size:14px;
+    }
+
+    .searchResultInfo h3{
+        color:black;
+        font-weight:600;
+    }
+
+    .searchResultInfo h4{
+        color:var(--lightGray);
+        font-weight:400;
+    }
+</style>
+
+<div class="sideBarSearchContainer">
+    <div class="menuKeyWordSection">
+        <h3>Search</h3>
+    </div>
+
+    <div class="searchInputSection">
+        <input aria-label="Search input" autocapitalize="none" class="searchInput" dir="" placeholder="Search" type="text" value="">
+        <div class="searchInputLabelButton" role="button" tabindex="0" onclick="this.style.display='none'">
+            <div class="">
+                <div class="">
+                    <svg aria-label="Search" class="" color="rgb(142, 142, 142)" fill="rgb(142, 142, 142)" height="16" role="img" viewBox="0 0 24 24" width="16">
+                        <title>Search</title>
+                        <path d="M19 10.5A8.5 8.5 0 1 1 10.5 2a8.5 8.5 0 0 1 8.5 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
+                    </svg>
+                </div>
+                <span class="">Search</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchResults">
+        {% for username in (data["randomUserNames"]*3): %}
+        <div class="searchResult">
+            <div class="searchResultBanner">
+
+            </div>
+        
+            <div class="searchResultInfo">
+                <h3 class="searchResultUsername">
+                    {{ username }}
+                </h3>
+                <h4 class="searchResultDescription">
+                    {{ username.capitalize() }}
+                </h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>

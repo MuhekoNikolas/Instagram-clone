@@ -1,0 +1,142 @@
+
+
+<style>
+    .storiesSection{
+        position:relative;
+
+
+        width:95%;
+        height:100px;
+
+        margin:0px auto !important;
+        margin-top:50px !important;
+
+        display:flex;
+        align-items:center;
+
+        overflow:hidden;
+
+        background:none;
+    }
+
+    .story_controls{
+        position:relative;
+        top:0px;
+
+        max-width:45px;
+        min-width:45px;
+
+        height:45px;
+
+        cursor:pointer;
+
+        z-index:10;
+    }
+
+    .story_controls.prev{
+        margin-right:auto;
+
+        transform:translate(20px, 0px);
+
+        background-size:553px 528px !important;
+        background-repeat: no-repeat !important;
+        background-position: -294px -226px !important;
+    }
+
+    .story_controls.next{
+        margin-left:auto;
+
+        transform:translate(-60px, 0px);
+
+        background-size:553px 528px !important;
+        background-repeat: no-repeat !important;
+        background-position: -294px -273px !important;
+    }
+
+    .storiesSection .stories{
+        position:relative;
+        left:0px;
+
+        width:95%;
+        min-width:95% !important;
+        max-width: 95%;
+        height:90px;
+
+        margin-left:-45px;
+
+        display:flex;
+        column-gap:10px;
+        justify-content:start;
+        align-items:center;
+
+        overflow:hidden;
+        overflow-x:scroll;
+
+        scroll-behavior:smooth;
+        scroll-snap-type: x mandatory;
+
+        background:none;
+    }
+
+    .storiesSection .stories::-webkit-scrollbar{
+        height:1px;
+    }
+
+    .storiesSection .stories .story{
+        position:relative;
+
+        width:75px !important;
+        min-width:75px;
+        max-width:75px;
+
+        scroll-snap-align: start;
+
+        height:90px !important; 
+
+        background:none;
+    }
+
+    .storiesSection .stories .story .authorPfp{
+        width:60px;
+        height:60px;
+
+        border-radius:50px;
+
+        display:block;
+        margin:5px auto;
+        margin-bottom:10px;
+
+        background:none;
+    }
+
+    .storiesSection .stories .story .authorName{
+        max-width:60px;
+        text-overflow: ellipsis;
+
+        color:gray;
+        font-family:var(--instagramFont);
+        font-size:12px;
+        line-height:16px;
+        letter-spacing: .01em;
+        font-weight:400;
+        text-align:center;
+
+        margin:0px auto;
+
+        background:none;
+    }
+
+</style>
+
+<div class="storiesSection">
+    <div class="story_controls prev" style="background:url( {{ url_for('static', filename='images/iconsSprite.png') }} );"></div>
+    <div class="stories">
+        {% for _ in range(20) %}
+        <div class="story">
+            <div class="authorPfp"></div>
+            <h3 class="authorName">Nikolas</h3>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="story_controls next" style="background:url( {{ url_for('static', filename='images/iconsSprite.png') }} );"></div>
+</div>

@@ -93,13 +93,10 @@
     padding-right:3px;
 }
 
-.sideBar.searchMenuActive .sideBarSearchLink{
+.sideBar.searchMenuActive .sideBarSearchLink, .sideBar.notificationsMenuActive .sideBarNotificationsLink{
     border:1px solid var(--lightGray);
 }
 
-.sideBar.notificationsMenuActive .sideBarNotificationsLink{
-    border:1px solid var(--lightGray);
-}
 
 
 .sideBar .instagramLogo .instagramIconMenusShown{

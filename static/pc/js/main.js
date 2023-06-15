@@ -8,6 +8,7 @@ function redirect(where="/"){
 document.addEventListener('click', function(event) {
 
     sideBar = document.querySelector(".sideBar")
+
     searchBarInputButton = document.querySelector(".searchInputLabelButton")
     searchBarInput = document.querySelector(".searchInput")
     sideBarSearchMenu = document.querySelector(".sideBarSearchContainer")
@@ -19,6 +20,9 @@ document.addEventListener('click', function(event) {
 
     sideBarNotificationsMenu = document.querySelector(".sideBarNotificationsContainer")
     sideBarNotificationsLinkButton = document.querySelector(".sideBarLink.sideBarNotificationsLink")
+
+    sideBarMoreMenu = document.querySelector(".sideBarMoreContainer")
+    sideBarMoreLinkButton = document.querySelector(".sideBarLink.sideBarMoreLink")
 
     if (event.target !== searchBarInputButton && searchBarInputButton.contains(event.target) == false && event.target !== searchBarInput && searchBarInput.contains(event.target) == false) {
         if(searchBarInput.value.length > 0){
@@ -32,22 +36,26 @@ document.addEventListener('click', function(event) {
 
     if (event.target !== sideBarSearchMenu && sideBarSearchMenu.contains(event.target) == false && event.target != sideBarSearchLinkButton && sideBarSearchLinkButton.contains(event.target) == false ) {
         sideBar.classList.remove("searchMenuActive")
-        //activeSideMenuLinkElement.classList.add("active")
         sideBarSearchLinkButton.classList.remove("active")
     } else {
         sideBar.classList.add("searchMenuActive")
-        //activeSideMenuLinkElement.classList.remove("active")
         sideBarSearchLinkButton.classList.add("active")
     }
 
     if (event.target !== sideBarNotificationsMenu && sideBarNotificationsMenu.contains(event.target) == false && event.target != sideBarNotificationsLinkButton && sideBarNotificationsLinkButton.contains(event.target) == false ) {
         sideBar.classList.remove("notificationsMenuActive")
         sideBarNotificationsLinkButton.classList.remove("active")
-        //activeSideMenuLinkElement.classList.add("active")
     } else {
         sideBar.classList.add("notificationsMenuActive")
         sideBarNotificationsLinkButton.classList.add("active")
-        //activeSideMenuLinkElement.classList.remove("active")
+    }
+
+    if (event.target !== sideBarMoreMenu && sideBarMoreMenu.contains(event.target) == false && event.target != sideBarMoreLinkButton && sideBarMoreLinkButton.contains(event.target) == false ) {
+        sideBar.classList.remove("moreMenuActive")
+        sideBarMoreLinkButton.classList.remove("active")
+    } else {
+        sideBar.classList.add("moreMenuActive")
+        sideBarMoreLinkButton.classList.add("active")
     }
 
   });

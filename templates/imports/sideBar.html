@@ -38,12 +38,7 @@
             </div>
         </div>
 
-        {% if data["currentSite"] == "search" %}
-        <div class="sideBarLink active sideBarSearchLink" onclick="redirect('#')">
-        <script> var activeSideMenuLinkElement = document.querySelector(".sideBarSearchLink") </script>
-        {% else %}
         <div class="sideBarLink sideBarSearchLink" onclick="redirect('#')">
-        {% endif %}
             <div class="sideBarLinkIconSection">
                 <svg class="icon searchIcon">
 
@@ -64,7 +59,7 @@
         <div class="sideBarLink active sideBarExploreLink" onclick="redirect('/explore')">
         <script> var activeSideMenuLinkElement = document.querySelector(".sideBarExploreLink") </script>
         {% else %}
-        <div class="sideBarLink" onclick="redirect('/explore')">
+        <div class="sideBarLink sideBarExploreLink" onclick="redirect('/explore')">
         {% endif %}
             <div class="sideBarLinkIconSection">
                 <svg class="icon exploreIcon">
@@ -86,7 +81,7 @@
         <div class="sideBarLink active sideBarReelsLink" onclick="redirect('/reels')">
         <script> var activeSideMenuLinkElement = document.querySelector(".sideBarReelsLink") </script>
         {% else %}
-        <div class="sideBarLink" onclick="redirect('/reels')">
+        <div class="sideBarLink sideBarReelsLink" onclick="redirect('/reels')">
         {% endif %}
             <div class="sideBarLinkIconSection">
                 <svg class="icon reelsIcon">
@@ -129,12 +124,7 @@
         </div>
 
 
-        {% if data["currentSite"] == "notifications" %}
-        <div class="sideBarLink active sideBarNotificationsLink" onclick="redirect('#')">
-        <script> var activeSideMenuLinkElement = document.querySelector(".sideBarNotificationsLink") </script>
-        {% else %}
         <div class="sideBarLink sideBarNotificationsLink" onclick="redirect('#')">
-        {% endif %}
             <div class="sideBarLinkIconSection">
                 <svg class="icon notificationsIcon" style="width:25px; height:25px;">
 
@@ -154,7 +144,7 @@
         <div class="sideBarLink active sideBarCreateLink" onclick="redirect('/create')">
         <script> var activeSideMenuLinkElement = document.querySelector(".sideBarCreateLink") </script>
         {% else %}
-        <div class="sideBarLink" onclick="redirect('/create')">
+        <div class="sideBarLink sideBarCreateLink" onclick="redirect('/create')">
         {% endif %}
             <div class="sideBarLinkIconSection">
                 <svg class="icon notificationsIcon">
@@ -184,12 +174,8 @@
             </div>
         </div>
 
-        {% if data["currentSite"] == "create" %}
-        <div class="sideBarLink active sideBarMoreLink" onclick="redirect('/more')">
-        <script> var activeSideMenuLinkElement = document.querySelector(".sideBarMoreLink") </script>
-        {% else %}
-        <div class="sideBarLink" onclick="redirect('/more')">
-        {% endif %}
+
+        <div class="sideBarLink sideBarMoreLink" onclick="redirect('/#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon moreIcon">
                     <use class="activeIcon" xlink:href="/static/icons/more.svg#moreIconPathActive"></use>

@@ -52,9 +52,12 @@
     position:relative;
 
     width: calc( var(--sideBarWidth) - 40px );
-    height:500px;
+    height:100vh;
 
     align-self:center;
+
+    display:flex;
+    flex-direction:column;
 
     background:none;
 }
@@ -184,4 +187,9 @@
 
 .sideBarLink.active .sideBarLinkName{
     font-weight:700;
+}
+
+
+.sideBarMoreLink{
+    margin-top:auto !important;
 }

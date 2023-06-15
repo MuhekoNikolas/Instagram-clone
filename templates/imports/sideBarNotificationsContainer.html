@@ -10,6 +10,7 @@
         width:400px;
         height:100vh;
 
+
         border-left:1px solid var(--lightGray);
 
         border-radius:0px 20px 20px 0px;
@@ -191,7 +192,7 @@
         position:relative;
         width: calc(90%) ;
         height:fit-content;
-        min-height:300px;
+        min-height:80px;
 
         padding:0px 5%;
 
@@ -205,9 +206,9 @@
     .notificationsSection > div{
         width:100%;
         height:fit-content;
-        min-height:100px;
+        min-height:70px !important;
 
-        background:red;
+        background:none;
     }
 
 
@@ -222,10 +223,10 @@
 
     .notificationsSection > div > div{
         height:fit-content;
-        min-height:100px;
+        min-height:70px;
         width:100%;
 
-        background:cyan;
+        background:none;
     }
 
     .notificationsSection > div > div > .notification{
@@ -237,12 +238,16 @@
         column-gap:5px;
         align-items:center;
 
-        background:purple;
+        background:none;
     }
     
     .notificationsSection > div > div > .notification .pfpSection{
-        width:40px;
         height:40px;
+        width:40px;
+        max-width:40px;
+        max-height:40px;
+        min-height:40px;
+        min-width:40px;
 
         border-radius:50px;
 
@@ -252,12 +257,32 @@
     .notifContentSection{
         width:auto;
         height:fit-content;
-        min-height:50px;
+        min-height:40px;
 
-        flex-grow:1;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        flex-grow:1;        
 
-        background:gray;
+        background:none;
     }
+
+    .notifContentSection span{
+        font-family:var(--instagramFont);
+        font-size:14px;
+        line-height:18px;
+        font-weight:400;
+        margin:0px;
+    }
+
+    .notifWho{
+        font-weight:600 !important;
+    }
+
+    .notifWhen{
+        color:var(--lightGray);
+    }
+
 
     .notifBannerOrButtonSection{
         width:fit-content;
@@ -267,11 +292,35 @@
         min-height:50px;
         min-width:80px;
 
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
         margin-left:auto;
 
-        background:green;
+        background:none;
     }
 
+    .notifBannerOrButtonSection .notifButton{
+        width:fit-content;
+        height:18px;
+
+        display:flex;
+        justify-content:center;
+        align-items:Center;
+        margin:0px;
+        padding:7px 16px;
+
+        color:white;
+        line-height:18;
+        font-size:14px;
+        font-weight:600;
+        font-family:var(--instagramFont);
+
+        border-radius:8px;
+
+        background:var(--blue);
+    }
 </style>
 
 <div class="sideBarNotificationsContainer">
@@ -288,9 +337,7 @@
             <h4 class="namesSectionTitle">john + 2 others</h4>
         </div>
         <div class="iconsSection">
-            <div class="dot">
-
-            </div>
+            <div class="dot"></div>
             <span class="svgIcon">
                 <svg aria-label="" class="x1lliihq x1n2onr6" color="rgb(115, 115, 115)" fill="rgb(115, 115, 115)" height="16" role="img" viewBox="0 0 24 24" width="16"><title></title><path d="M21 17.502a.997.997 0 0 1-.707-.293L12 8.913l-8.293 8.296a1 1 0 1 1-1.414-1.414l9-9.004a1.03 1.03 0 0 1 1.414 0l9 9.004A1 1 0 0 1 21 17.502Z"></path></svg>
             </span>
@@ -303,25 +350,55 @@
                 This month
             </h3>
             <div class="thisMonthNotifsContainer">
+
+                {% for _ in range(1,5): %}
                 <div class="notification">
                     <div class="pfpSection">
 
                     </div>
                     <div class="notifContentSection">
-
+                        <span>
+                            <span class="notifSummarize">
+                                <span class="notifWho">{{_}}xr{{_}}ings{{_}}ar</span>
+                                started following you.
+                            </span>
+                            <span class="notifContent"></span>
+                            <span class="notifWhen">{{ _ }} weeks ago</span>
+                        </span>
                     </div>
                     <div class="notifBannerOrButtonSection">
-
+                        <div class="notifButton">Follow</div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
         <div class="earlierNotifications">
             <h3 class="notificationsTitle">
                 Earlier
             </h3>
+
             <div class="earlierNotifsContainer">
-                
+                {% for _ in range(5,12): %}
+                <div class="notification">
+                    <div class="pfpSection">
+
+                    </div>
+                    <div class="notifContentSection">
+                        <span>
+                            <span class="notifSummarize">
+                                <span class="notifWho">{{_}}xr{{_}}ings{{_}}ar</span>
+                                started following you.
+                            </span>
+                            <span class="notifContent"></span>
+                            <span class="notifWhen">{{ _ }} weeks ago</span>
+                        </span>
+                    </div>
+                    <div class="notifBannerOrButtonSection">
+                        <div class="notifButton">Follow</div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

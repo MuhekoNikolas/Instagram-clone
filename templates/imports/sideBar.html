@@ -7,10 +7,12 @@
 
     {% include '/imports/sideBarSearchContainer.html' %}
     {% include '/imports/sideBarNotificationsContainer.html' %}
+    {% include '/imports/sideBarMoreContainer.html' %}
 
     <div class="sideBarInstagramLogoSection">
         <svg class="icon instagramLogo">
-            <use xlink:href="/static/icons/instagram.svg#instagramLogoPath"></use>
+            <use class="instagramIconMenusHidden" xlink:href="/static/icons/instagram.svg#instagramLogoPathMenusHidden"></use>
+            <use class="instagramIconMenusShown" xlink:href="/static/icons/instagram.svg#instagramLogoPathMenusShown"></use>
         </svg>
     </div>
 

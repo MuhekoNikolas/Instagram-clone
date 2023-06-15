@@ -33,14 +33,19 @@
     display:inline-block;
     align-items:center;
 
+    margin:0px auto;
     margin-bottom:10px;
 
-    background:var(--white);;
+    background:var(--white);
 }
 
 .sideBarInstagramLogoSection svg{
     margin-left:-10px;
     margin-top:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .sideBarLinksSection{
@@ -75,7 +80,7 @@
     background:none;
 }
 
-.sideBar.searchMenuActive .sideBarLink, .sideBar.notificationsMenuActive .sideBarLink{
+.sideBar.searchMenuActive .sideBarLink, .sideBar.notificationsMenuActive .sideBarLink, .sideBar.notificationsMenuActive .instagramLogo, .sideBar.searchMenuActive .instagramLogo{
     width:40px;
 
     margin-left:-8px;
@@ -93,11 +98,37 @@
     border:1px solid var(--lightGray);
 }
 
-.sideBar.searchMenuActive .sideBarSearchLink svg, .sideBar.notificationsMenuActive .sideBarNotificationsLink svg {
+
+.sideBar .instagramLogo .instagramIconMenusShown{
+    display:none;
+}
+
+.sideBar.notificationsMenuActive .instagramLogo .instagramIconMenusShown, .sideBar.searchMenuActive .instagramLogo .instagramIconMenusShown{
+    transform: scale(1.2);
+
+    display:flex;
+}
+
+.sideBar.notificationsMenuActive .instagramLogo, .sideBar.searchMenuActive .instagramLogo{
+    position: relative;
+    left:10px !important;
+}
+
+.sideBar .instagramLogo .instagramIconMenusHidden{
+    display:flex;
+}
+
+.sideBar.notificationsMenuActive .instagramLogo .instagramIconMenusHidden, .sideBar.searchMenuActive .instagramLogo .instagramIconMenusHidden{
+    display:none;
+}
+
+.sideBar.searchMenuActive .sideBarSearchLink svg, .sideBar.notificationsMenuActive .sideBarNotificationsLink svg, .sideBar.notificationsMenuActive .instagramLogo svg, .sideBar.searchMenuActive .instagramLogo svg {
     position: relative;
     top:2px;
     left:-2px;
 }
+
+
 
 .sideBarLink svg{
     height:30px;

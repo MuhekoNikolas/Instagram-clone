@@ -40,12 +40,14 @@
 }
 
 .sideBarInstagramLogoSection svg{
-    margin-left:-10px;
-    margin-top:45px;
+    margin-left:-35px;
+    margin-top:33px;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
+    transform: scale(.91);
 }
 
 .sideBarLinksSection{
@@ -72,8 +74,8 @@
     display:grid;
     grid-template-columns:50px 100px;
 
-    padding-left:15px;
-    margin-left: -4px;
+    padding-left:4px;
+    margin-left: -10px;
     margin-bottom:3px;
 
     cursor:pointer;
@@ -94,11 +96,17 @@
     padding-right:3px;
 }
 
+.sideBar.notificationsMenuActive .instagramLogo, .sideBar.searchMenuActive .instagramLogo{
+    margin-left:-13px;
+}
+
 .sideBar.searchMenuActive .sideBarSearchLink, .sideBar.notificationsMenuActive .sideBarNotificationsLink{
     border:1px solid var(--lightGray);
 }
 
-
+.sideBar .profileIcon{
+    margin-left:-10px;
+}
 
 .sideBar .instagramLogo .instagramIconMenusShown{
     display:none;
@@ -132,8 +140,13 @@
 
 
 .sideBarLink svg{
+    position: relative;
+    top:2px;
+
     height:30px;
     width:30px;
+
+    transform: scale(.9);
 
     margin-left:-5px;
 }
@@ -144,6 +157,10 @@
 
 .sideBarLink:hover{
     background: var(--sideBarLinksHoverColor);
+}
+
+.sideBarLink:hover .icon{
+    transform:scale(1);
 }
 
 .sideBarLink .activeIcon, .sideBarLink.active .inActiveIcon{

@@ -3,7 +3,7 @@
 
 
 <!-- <div class="sideBar notificationsMenuActive"> -->
-<div class="sideBar moreMenuActive">
+<div class="sideBar">
 
     {% include '/imports/sideBarSearchContainer.html' %}
     {% include '/imports/sideBarNotificationsContainer.html' %}
@@ -164,7 +164,7 @@
         <div class="sideBarLink active sideBarProfileLink" onclick="redirect('/users/profile')">
         <script> var activeSideMenuLinkElement = document.querySelector(".sideBarProfileLink") </script>
         {% else %}
-        <div class="sideBarLink" onclick="redirect('/users/profile')">
+        <div class="sideBarLink sideBarProfileLink" onclick="redirect('/users/profile')">
         {% endif %}
             <div class="sideBarLinkIconSection">
                 <div class="icon profileIcon" style="width:27px; height:27px; border-radius:50px; background:red;"></div>
@@ -175,7 +175,7 @@
         </div>
 
 
-        <div class="sideBarLink sideBarMoreLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarMoreLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon moreIcon">
                     <use class="activeIcon" xlink:href="/static/icons/more.svg#moreIconPathActive"></use>

@@ -18,7 +18,8 @@
         background:white;
     }
 
-    .homePost > div{
+
+    .homePost > :not(.profilePreview){
 
         width:100%;
 
@@ -33,19 +34,50 @@
     .postAuthorAndInfoSection{
         height:fit-content;
 
-        
+        display:flex;
+        flex-direction: row;
+
         background:none !important;
     }
 
     .postAuthorBlock{
         height:40px !important;
+        width:100%;
     }
+
+    .postAuthorBlock .infoSection{
+
+        display:flex;
+        flex-direction: row;
+
+
+        width:fit-content;
+        height:40px !important;
+
+    }
+
+    .infoSection:hover .profilePreview{
+        animation-name: showProfilePreviewAnimation;
+        animation-duration: .3s;
+        animation-timing-function: ease-in-out;
+        animation-delay: .5s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+
 
     .postAuthorBlock .profileBlock{
         width:34px;
         height:34px;
+        min-width:34px;
+        min-height:34px;
+        max-width:34px;
+        max-height:34px;
 
         z-index:2;
+
+        margin-right:10px;
 
         background:none;
     }
@@ -146,6 +178,10 @@
         font-size:12px;
         font-weight:400;
         line-height:16px;
+    }
+
+    .postOptionsBlock{
+        margin-left:auto;
     }
 
     .postOptionsBlock svg{
@@ -294,22 +330,25 @@
 
 
 <div class="homePost">
+
     <div class="postAuthorAndInfoSection">
         <div class="postAuthorBlock">
-            <div class="profileBlock">
-    
+            <div class="infoSection">
+                {% include '/imports/profilePreview.html' %}
+                <div class="profileBlock"></div>
+                <div class="userInfoBlock">
+                    <h3>
+                        niko                   
+                        <span class="badgesSection">
+                            <span class="verifiedBadge"></span>
+                        </span>
+                        <span class="seperatorDot">•</span>
+                        <span class="postedAtSection">2 h</span>
+                    </h3>
+                    <h4 class="description" style="font-size:12px;">Original Audio</h4>
+                </div>
             </div>
-            <div class="userInfoBlock">
-                <h3>
-                    niko                   
-                    <span class="badgesSection">
-                        <span class="verifiedBadge"></span>
-                    </span>
-                    <span class="seperatorDot">•</span>
-                    <span class="postedAtSection">2 h</span>
-                </h3>
-                <h4 class="description" style="font-size:12px;">Original Audio</h4>
-            </div>
+
             <div class="postOptionsBlock">
                 <h4><svg aria-label="More Options" class="_ab6-" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg></h4>
             </div>

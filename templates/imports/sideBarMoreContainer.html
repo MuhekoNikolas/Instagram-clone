@@ -7,7 +7,9 @@
         left:20px;
 
         width:270px;
-        height:72vh;
+        height:fit-content;
+        min-height:310px;
+        max-height:72vh;
 
         z-index:800;
 
@@ -26,6 +28,14 @@
         row-gap:5px;
     }
 
+    .sideBarMoreContainer > div{
+        display:flex;
+        flex-direction: column;
+        row-gap:5px;
+
+        padding:5px 0px;
+    }
+
     .sideBarMoreContainer .topSection{
         width:100%;
         height:70%;
@@ -37,7 +47,7 @@
 
     .sideBarMoreContainer .bottomSection{
         width:100%;
-        height:30%;
+        height:32%;
 
         border-radius:0px 0px 10px 10px;
 
@@ -52,7 +62,6 @@
         grid-template-columns:30px 100px;
 
         margin:0px auto;
-        margin-top:5px;
     }
 
     .sideBarMoreContainer .sideBarLink svg{
@@ -78,7 +87,7 @@
 <div class="sideBarMoreContainer">
     <div class="topSection">
 
-        <div class="sideBarLink sideBarSettingsLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarSettingsLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon settingsIcon">
                     <use class="inActiveIcon" xlink:href="/static/icons/settings.svg#settingsIconCircleInactive"></use>
@@ -90,7 +99,7 @@
             </div>
         </div>
 
-        <div class="sideBarLink sideBarSettingsLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarSettingsLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon yourActivityIcon">
                     <!-- <use class="inActiveIcon" xlink:href="/static/icons/yourActivity.svg#yourActivityIconPathInactive"></use>
@@ -115,7 +124,7 @@
             </div>
         </div>
 
-        <div class="sideBarLink sideBarSavedLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarSavedLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon savedIcon">
                     <title>Saved</title>
@@ -127,7 +136,7 @@
             </div>
         </div>
 
-        <div class="sideBarLink sideBarThemeLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarThemeLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon themeIcon">
                     <title>Theme icon</title>
@@ -139,7 +148,7 @@
             </div>
         </div>
 
-        <div class="sideBarLink sideBarreportAProblemLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarreportAProblemLink" onclick="redirect('#')">
             <div class="sideBarLinkIconSection">
                 <svg class="icon reportAProblemIcon">
                     <title>Report a problem</title>
@@ -154,15 +163,15 @@
     </div>
 
     <div class="bottomSection">
-        <div class="sideBarLink sideBarThemeLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarThemeLink" onclick="redirect('#')">
             <div class="sideBarLinkName">
                 Switch accounts
             </div>
         </div>
 
-        <div class="line" style="width:100%; height:1px; background:var(--lightLightGray); margin-top:5px;"></div>
+        <div class="line" style="width:100%; height:1px; background:var(--lightLightGray);"></div>
 
-        <div class="sideBarLink sideBarThemeLink" onclick="redirect('/#')">
+        <div class="sideBarLink sideBarThemeLink" onclick="redirect('#')">
             <div class="sideBarLinkName">
                 Log out
             </div>

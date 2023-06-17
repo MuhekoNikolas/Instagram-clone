@@ -26,39 +26,254 @@
         row-gap:5px;
 
         visibility:hidden;
-        visibility: visible;
 
-        background:red;
+        box-shadow:-1px 2px 20px rgba(0,0,0,0.3);
+
+        background:white;
     }
 
     .profilePreview > div{
         width:100%;
         min-height:50px;
 
-        background:blue;
+        background:green;
     }
 
     .userInfoPreview{
+        width: calc( 100% - 30px ) !important;
         height:80px;
+
+        padding:0px 15px;
+
+        display:flex;
+        justify-content: start;
+        align-items: center;
+
+        background:none !important;
     }
 
-    .userStatsPreview{
-        height:70px;
+    .userInfoPreview .profileBlock{
+        width:50px;
+        height:50px;
+        min-width:50px;
+        min-height:50px;
+        max-width:50px;
+        max-height:50px;
+
+        margin-right:20px;
+        
     }
+
+    .userInfoPreview .userInfoBlock h3{
+        font-size:20px;
+        line-height:20px;
+
+        margin-bottom:5px;
+
+        font-weight:700;
+    }
+
+    .userInfoPreview .userInfoBlock h4{
+        font-size:14px;
+        line-height:20px;
+
+        color:var(--gray);
+    }
+
+    .userInfoPreview .badgesSection{
+        margin-left:5px;
+    }
+
+    .userInfoPreview .badgesSection span{
+        position:relative;
+        top:5px;
+
+        transform: scale(1.3);
+    }
+
+
+    .userStatsPreview{
+
+        width:95% !important;
+
+        height:50px;
+
+        display:grid;
+        grid-template-columns: repeat(3, calc( 95% / 3) );
+        justify-content: center;
+        grid-gap:10px;
+
+        margin:0px auto;
+
+        background: none !important;
+
+    }
+
+    .userStatsPreview > div{
+        position:Relative;
+
+        display:flex;
+        flex-direction: column;
+        row-gap: 0px;
+        justify-content: center;
+        align-items: center;
+
+        width:100%;
+        height:50px;
+
+        background:none;
+    }
+
+    .userStatsPreview > div span{
+        font-family: var(--instagramFont);
+    }
+
+    .statCount{
+        font-weight:600;
+    }
+
+    .userPostsPreview{
+        height:130px;
+
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap:5px;
+
+        margin-top:5px;
+
+        background:none !important;
+    }
+
+    .userPostsPreview > div{
+        position:relative;
+        width:130px;
+        height:125px;
+
+        background:gold;
+    }
+
+    .userActionsPreview{
+        margin-top:5px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        background: none !important;
+    }
+
+    .buttonsContainer{
+        width:93%;
+        height:40px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        column-gap:5px;
+
+        background:none;
+    }
+
+    .buttonsContainer > div{
+        width:fit-content;
+        min-width:180px;
+        max-width:200px;
+        height:35px;
+
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius:8px;
+
+        cursor: pointer;
+
+
+        background:none;
+    }
+
+    .buttonsContainer > div h3{
+        font-size:15px;
+        font-family:var(--instagramFont);
+        font-weight:500 !important;
+    }
+
+    .buttonsContainer > div svg,     .buttonsContainer > div svg use{
+        position:relative;
+        top:2.5px;
+
+        transform: scale(.9);
+
+        width:24px;
+        height:24px;
+
+        stroke:var(--white);
+    }
+
 
 </style>
 
 <div class="profilePreview">
     <div class="userInfoPreview">
-
+        <div class="profileBlock"></div>
+        <div class="userInfoBlock">
+            <h3>niko 
+                <span class="badgesSection">
+                    <span class="verifiedBadge"></span>
+                </span>
+            </h3>
+            <h4>nikolipo</h4>
+        </div>
     </div>
+
     <div class="userStatsPreview">
-
+        <div class="postsCount">
+            <span class="statCount">
+                20.1K
+            </span>
+            <span class="statName">posts</span>
+        </div>
+        <div class="followersCount">
+            <span class="statCount">
+                205.9M
+            </span>
+            <span class="statName">followers</span>
+        </div>
+        <div class="followingsCount">
+            <span class="statCount">
+                64
+            </span>
+            <span class="statName">following</span>
+        </div>
     </div>
+
     <div class="userPostsPreview">
-
+        <div class="userPostPreview"></div>
+        <div class="userPostPreview"></div>
+        <div class="userPostPreview"></div>
     </div>
-    <div class="userActionsPreview">
 
+
+    <div class="userActionsPreview">
+        <div class="buttonsContainer">
+            <div style="color:white !important; background:var(--blue);">
+                <svg class="icon messagesIcon">
+                    <title>Direct</title>
+                    
+                    <use class="activeIcon" xlink:href="/static/icons/messages.svg#messagesIconPathActive"></use>
+                    
+                    <use class="inActiveIcon" xlink:href="/static/icons/messages.svg#messagesIconLineInactive"></use>
+                    <use class="inActiveIcon" xlink:href="/static/icons/messages.svg#messagesIconPolygonInactive"></use>
+                    
+                </svg>
+                <h3>Message</h3>
+            </div>
+
+            <div style="color:black !important; background:var(--lightLightGray);">
+                <h3>Following</h3>
+            </div>
+        </div>
     </div>
 </div>

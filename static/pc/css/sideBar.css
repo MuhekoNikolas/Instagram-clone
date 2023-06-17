@@ -75,6 +75,7 @@
     grid-template-columns:50px 100px;
 
     padding-left:4px;
+    padding-right:14px;
     margin-left: -10px;
     margin-bottom:3px;
 
@@ -151,7 +152,7 @@
     margin-left:-5px;
 }
 
-.sideBarLink svg use{
+.sideBarLink svg use, .buttonsContainer > div svg use{
     fill: none; stroke: currentcolor; stroke-linejoin: round; stroke-width: 1; 
 }
 

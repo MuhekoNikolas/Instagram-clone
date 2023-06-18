@@ -1,0 +1,59 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Instagram</title>
+
+    <script src="{{ url_for('static', filename='pc/js/home.js') }}" defer></script>
+
+    {% include "/imports/stylesAndScripts.html" %}
+
+</head>
+
+<body>
+    <div class="mainWrapper">
+
+        {% include "/imports/sideBar.html" %}
+
+        <style>
+            .pageContentWrapper{
+                position:fixed;
+                top:0px;
+                left:0px;
+
+                width: calc( var(--pageContentWidth) + var(--followRecommendationBarWidth) - 1px ) !important;
+                height:100vh;
+
+                overflow:hidden;
+                overflow-y:auto;
+
+
+                z-index:500;
+                
+                /* display:grid;
+                grid-template-columns: var(--pageContentWidth) var(--followRecommendationBarWidth); */
+
+                margin-left: calc( var(--sideBarWidth) + 1px );
+
+                background:yellow;
+            }
+        </style>
+
+        <div class="pageContentWrapper">
+            <div class="pageContentDiv">
+                <div class="postsSection" style="height:fit-content; width:95%; margin:10px auto; background:var(--white); display:block;">
+                    uhuyguy
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

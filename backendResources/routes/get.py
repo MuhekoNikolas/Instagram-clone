@@ -16,17 +16,11 @@ def initGetRoutes(app):
 
         return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
     
-    @app.get("/search")
-    def searchGet():
-        currentSite = getCurrentSite(request)
-
-        return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
-
 
     @app.get("/explore")
     def exploreGet():
         currentSite = getCurrentSite(request)
-        return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
+        return render_template("/mainSites/explore.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
 
 
     @app.get("/reels")
@@ -41,10 +35,6 @@ def initGetRoutes(app):
         return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
 
 
-    @app.get("/notifications")
-    def notificationsGet():
-        currentSite = getCurrentSite(request)
-        return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
 
     @app.get("/create")
     def createGet():

@@ -122,11 +122,11 @@
         left: calc( 15px / 2 );
 
         width: calc( 90% + 15px );
-        height: calc( 100vh - 195px );
+        height: calc( 100vh - 145px );
 
         margin:0px auto;
         margin-top:5px;
-        padding-top:10px;
+        padding-top:5px;
         padding-bottom:10px;
         /* margin-left: calc( 15px / 2 ) ; */
 
@@ -231,7 +231,8 @@
     </div>
 
     <div class="searchResults">
-        {% for username in (data["randomUserNames"]*3): %}
+        {% for _ in range(50): %}
+            {% set username = (data["randomUserNames"]) | random %}
         <div class="searchResult">
             <div class="searchResultBanner">
 

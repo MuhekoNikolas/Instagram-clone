@@ -5,7 +5,6 @@ function redirect(where="/"){
 }
 
 
-
 activeSideMenuLinkElement = $(".sideBarLink.active")[0] || $("<div>")
 
 
@@ -42,11 +41,11 @@ document.addEventListener('click', function(event) {
         searchBarInput.focus()
     }
 
-    if (event.target.classList.contains("active") == false && $(".sideBarLink").is(event.target) == false ) {
-        activeSideMenuLinkElement.classList.remove("active")
-    } else {
-        activeSideMenuLinkElement.classList.add("active")
-    }
+    // if (event.target.classList.contains("active") == false && $(".sideBarLink").is(event.target) == false ) {
+    //     activeSideMenuLinkElement.classList.remove("active")
+    // } else {
+    //     activeSideMenuLinkElement.classList.add("active")
+    // }
 
     if (event.target != sideBarSearchMenu && sideBarSearchMenu.contains(event.target) == false && event.target != sideBarSearchLinkButton && sideBarSearchLinkButton.contains(event.target) == false ) {
         sideBar.classList.remove("searchMenuActive")

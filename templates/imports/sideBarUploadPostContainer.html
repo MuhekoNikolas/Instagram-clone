@@ -22,7 +22,7 @@
     }
 
     .uploadPostContainer{
-        width:367px;
+        width:350px;
         height:410px;
 
         align-self:center;
@@ -70,6 +70,26 @@
         margin:0px;
     }
 
+    .titleSection span{
+        color:var(--blue);
+        font-family: var(--instagramFont);
+    }
+
+    .titleSection .backButton{
+        margin-right:auto;
+        margin-left:10px;
+    }
+
+    .titleSection .backButton svg{
+        width:24px;
+        height:24px;
+    }
+
+    .titleSection .nextButton{
+        margin-left:auto;
+        margin-right:10px;
+    }
+
     .contentSection{
         display:flex;
         flex-direction: column;
@@ -77,14 +97,16 @@
         align-items: center;
 
         width:100%;
-        height: calc( 100% - 90px );
+        height: calc( 100% - 45px );
     }
 
     .uploadPostIcon{
         width:96px;
         height:77px;
 
-        transform: scale(1.2);
+        margin-top:50px;
+
+        transform: scale(1.5);
     }
 
     .uploadPostDescription{
@@ -98,7 +120,7 @@
         width:fit-content;
         height:fit-content;
 
-        padding:7px 16px;
+        padding:7px 18px;
 
         border-radius:8px;
 
@@ -110,6 +132,19 @@
         cursor: pointer;
 
         background:var(--blue);
+    }
+
+    .mediaSection{
+        position:relative;
+        top:0px;
+        left:0px;
+
+        width: 350px;
+        height:365px;
+
+        border-radius:0px 0px 10px 10px;
+
+        background:red;
     }
 </style>
 
@@ -128,6 +163,26 @@
             <div class="importPostFromDeviceButton">Select From Computer</div>
         </div>
     </div>
+
+
+    <div class="uploadPostContainer">
+        <div class="titleSection">
+            <span class="backButton"><svg aria-label="Back" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Back</title><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="2.909" x2="22.001" y1="12.004" y2="12.004"></line><polyline fill="none" points="9.276 4.726 2.001 12.004 9.276 19.274" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline></svg></span>
+            <h3>Crop</h3>
+            <span class="nextButton">Next</span>
+        </div>
+
+        <div class="contentSection">
+            <div class="mediaSection">
+
+            </div>
+            <div class="buttonsSection">
+
+            </div>
+        </div>
+    </div>
+
+
     <div class="closeButton">
         <svg aria-label="Close" class="x1lliihq x1n2onr6" color="rgb(255, 255, 255)" fill="rgb(255, 255, 255)" height="18" role="img" viewBox="0 0 24 24" width="18"><title>Close</title><polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line></svg>
     </div>

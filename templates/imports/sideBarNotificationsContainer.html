@@ -359,11 +359,11 @@
                     <div class="notifContentSection">
                         <span>
                             <span class="notifSummarize">
-                                <span class="notifWho">{{_}}xr{{_}}ings{{_}}ar</span>
+                                <span class="notifWho">{{ (data["randomUserNames"]) | random }}</span>
                                 started following you.
                             </span>
                             <span class="notifContent"></span>
-                            <span class="notifWhen">{{ _ }} weeks ago</span>
+                            <span class="notifWhen">{{ range(1, 5) | random }} w ago</span>
                         </span>
                     </div>
                     <div class="notifBannerOrButtonSection">
@@ -387,11 +387,11 @@
                     <div class="notifContentSection">
                         <span>
                             <span class="notifSummarize">
-                                <span class="notifWho">{{_}}xr{{_}}ings{{_}}ar</span>
+                                <span class="notifWho">{{ (data["randomUserNames"]) | random }}</span>
                                 started following you.
                             </span>
                             <span class="notifContent"></span>
-                            <span class="notifWhen">{{ _ }} weeks ago</span>
+                            <span class="notifWhen">{{ range(4,100) | random  }} w ago</span>
                         </span>
                     </div>
                     <div class="notifBannerOrButtonSection">

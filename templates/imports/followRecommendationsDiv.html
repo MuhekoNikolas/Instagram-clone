@@ -260,7 +260,7 @@
 
 <div class="followRecommendationsDiv">
     <div class="loggedInUserBlock">
-        <div class="profileBlock"></div>
+        <div class="profileBlock" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});"></div>
         <div class="userInfoBlock">
             <h3>mxrningstar</h3>
             <h4>Nick</h4>
@@ -279,71 +279,20 @@
 
         <div class="followRecommendations">
 
+            {% for _ in range(5): %}
             <div class="recommendedUserBlock">
-                <div class="profileBlock">
+                <div class="profileBlock" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});">
         
                 </div>
                 <div class="userInfoBlock">
-                    <h3>Sophia</h3>
+                    <h3> {{ (data["randomUserNames"]) | random }}</h3>
                     <h4 class="description" style="font-size:12px;">Suggested for you</h4>
                 </div>
                 <div class="switchAccountBlock">
                     <h4>Follow</h4>
                 </div>
             </div>
-
-            <div class="recommendedUserBlock">
-                <div class="profileBlock">
-        
-                </div>
-                <div class="userInfoBlock">
-                    <h3>Julie</h3>
-                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
-                </div>
-                <div class="switchAccountBlock">
-                    <h4>Follow</h4>
-                </div>
-            </div>
-
-            <div class="recommendedUserBlock">
-                <div class="profileBlock">
-        
-                </div>
-                <div class="userInfoBlock">
-                    <h3>Julie</h3>
-                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
-                </div>
-                <div class="switchAccountBlock">
-                    <h4>Follow</h4>
-                </div>
-            </div>
-
-            <div class="recommendedUserBlock">
-                <div class="profileBlock">
-        
-                </div>
-                <div class="userInfoBlock">
-                    <h3>Julie</h3>
-                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
-                </div>
-                <div class="switchAccountBlock">
-                    <h4>Follow</h4>
-                </div>
-            </div>
-
-            <div class="recommendedUserBlock">
-                <div class="profileBlock">
-        
-                </div>
-                <div class="userInfoBlock">
-                    <h3>Julie</h3>
-                    <h4 class="description" style="font-size:12px;">Suggested for you</h4>
-                </div>
-                <div class="switchAccountBlock">
-                    <h4>Follow</h4>
-                </div>
-            </div>
-
+            {% endfor %}
 
         </div>
 

@@ -20,21 +20,22 @@
         background:none;
     }
 
-    .story_controls{
+    .story_controls, .postContentSection .postControlButtons{
         position:relative;
         top:0px;
 
-        max-width:45px;
-        min-width:45px;
+        max-width:40px;
+        min-width:40px;
 
-        height:45px;
+        height:40px;
 
         cursor:pointer;
 
         z-index:10;
+        
     }
 
-    .story_controls.prev{
+    .story_controls.prev, .postContentSection .postControlButtons.prev{
         margin-right:auto;
 
         transform:translate(20px, 0px);
@@ -44,7 +45,7 @@
         background-position: -294px -226px !important;
     }
 
-    .story_controls.next{
+    .story_controls.next, .postContentSection .postControlButtons.next{
         margin-left:auto;
 
         transform:translate(-40px, 0px);
@@ -79,8 +80,10 @@
         background:none;
     }
 
-    .storiesSection .stories::-webkit-scrollbar{
+    .storiesSection .stories::-webkit-scrollbar, .postContentSection .postPostsSlide::-webkit-scrollbar{
         height:1px;
+
+        background:var(--white);
     }
 
     .storiesSection .stories .story{
@@ -132,7 +135,7 @@
 <div class="storiesSection">
     <div class="story_controls prev" style="background:url( {{ url_for('static', filename='images/iconsSprite.png') }} );"></div>
     <div class="stories">
-        {% for _ in range(20) %}
+        {% for _ in range(10) %}
         <div class="story">
             <div class="authorPfp"></div>
             <h3 class="authorName">Nikolas</h3>

@@ -124,7 +124,7 @@
         border:1.5px solid white;
         border-radius:50px;
 
-        background:cyan;
+        background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});
     }
 
     .postAuthorBlock .profileBlock::after, .authorPfp::after, .searchResultBanner::after{
@@ -196,6 +196,8 @@
     }
 
     .postContentSection{
+        position: relative;
+
         height:fit-content !important;
         min-height:600px;
 
@@ -203,13 +205,102 @@
     }
 
     .postContentSection .postPosts{
+        position:relative;
+
         height:fit-content;
         min-height:400px;
+        max-height:700px;
 
         border-radius:5px;
 
-        background:cyan;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        background:blue;
     }
+
+    .postContentSection .postPosts .postControlButtons.next{
+        position:relative;
+
+        left:20px;
+    }
+
+
+    .postContentSection .postPostsSlide{
+        position: relative;
+        top:0px;
+        left:0px;
+
+        width:100%;
+        min-width:500px;
+
+        height:100%;
+        min-height:400px;
+        max-height:700px;
+
+        margin-left:-45px;
+        margin-right:-45px;
+
+        display:flex;
+        column-gap: 0px;
+
+        overflow:hidden;
+        overflow-x:auto;
+
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+
+        background:red;
+    }
+
+    .postContentSection .postPostsSlide > div{
+        width:100%;
+        min-width:500px;
+        height:fit-content;
+        min-height:401px;
+
+        scroll-snap-align: start;
+
+        background:yellow;
+    }
+
+    .postContentSection .postPostsSlideDots{
+        position: absolute;
+        bottom:10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width:fit-content;
+        min-width:80px;
+        height:15px;
+
+        display:flex;
+        gap:3px;
+        justify-content: center;
+        align-items: center;
+
+        margin:0px auto;
+
+        background:none;
+    }
+
+    .postContentSection .postPostsSlideDots .postPostsSlideDot{
+        width:6px;
+        height:6px;
+
+        display:flex;
+
+        border-radius:50px;
+
+        background:var(--lightGray);
+    }
+
+    .postContentSection .postPostsSlideDots .postPostsSlideDot.active{
+        background:var(--white);
+    }
+    
+
 
     .postContentSection .postLikesAndCommentButtons{
         height:80px;
@@ -334,7 +425,6 @@
 
 
 <div class="homePost">
-
     <div class="postAuthorAndInfoSection">
         <div class="postAuthorBlock">
             <div class="infoSection">
@@ -359,8 +449,21 @@
         </div>
     </div>
     <div class="postContentSection">
-        <div class="postPosts">
-
+        <div class="postPosts" onload="">
+            <div class="postControlButtons prev" style="background:url( {{ url_for('static', filename='images/iconsSprite.png') }} );"></div>
+            <div class="postPostsSlide">
+                <div class="post" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});"></div>
+                <div class="post" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});"></div>
+                <div class="post" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});"></div>
+                <div class="post" style="background:rgb( {{ range(0, 255) | random }}, {{ range(0, 255) | random }}, {{ range(0, 255) | random }});"></div>
+            </div>
+            <div class="postControlButtons next" style="background:url( {{ url_for('static', filename='images/iconsSprite.png') }} );"></div>
+            <div class="postPostsSlideDots">
+                <div class="postPostsSlideDot"></div>
+                <div class="postPostsSlideDot"></div>
+                <div class="postPostsSlideDot active"></div>
+                <div class="postPostsSlideDot"></div>
+            </div>
         </div>
         <div class="postLikesAndCommentButtons">
             <div class="buttonsSection">

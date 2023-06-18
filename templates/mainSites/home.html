@@ -9,9 +9,9 @@
 
     <title>Instagram</title>
 
-    <script src="{{ url_for('static', filename='pc/js/home.js') }}" defer></script>
-
     {% include "/imports/stylesAndScripts.html" %}
+
+    <script src="{{ url_for('static', filename='pc/js/home.js') }}" defer></script>
 
 </head>
 
@@ -46,7 +46,7 @@
             <div class="pageContentDiv">
                 {% include "/imports/storiesSection.html" %}
                 <div class="postsSection" style="height:fit-content; width:95%; margin:10px auto; background:var(--white); display:block;">
-                    {% for _ in range(10) %}
+                    {% for _ in range(2) %}
                         {% include "/imports/homePosts.html" %}
                     {% endfor %}
                 </div>

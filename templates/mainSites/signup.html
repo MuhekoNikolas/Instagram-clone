@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Instagram</title>
+
+        {% include "/imports/stylesAndScripts.html" %}
+
+        <script src="{{ url_for('static', filename='pc/js/signup.js') }}" defer></script>
+
+    </head>
+
+    <body>
+        {% if( data["request"]["method"] == "POST"): %}
+            {% set insertedUsername = data["form"].get("username") %} 
+            {% set insertedPassword = data["form"].get("password") %} 
+            {% set insertedFullname = data["form"].get("fullname") %} 
+            {% set insertedEmail = data["form"].get("email") %} 
+        {% else %}
+            {% set insertedUsername = "" %}
+        {% endif %}
+
+        <div class="mainWrapper">
+
+
+            <style>
+                .pageContentWrapper{
+                    position:fixed;
+                    top:0px;
+                    left:0px;
+
+                    width: 100vw;
+                    height:100vh;
+
+                    overflow:hidden;
+                    overflow-y:auto;
+
+
+                    z-index:500;
+                    
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+
+                    margin-left: 0px;
+
+                    background:white !important;
+                }
+
+                .pageContentDiv{
+                    position: relative;
+                    top:0px;
+                    left:0px;
+
+                    width:100vw;
+                    height:fit-content;
+                    min-height:50vh;
+
+                    display:flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    justify-content: center;
+                    align-items: center;
+
+
+                    margin-top:200px !important;
+                    margin-bottom:0px !important;
+
+                }
+
+                .topSection{
+                    position: relative;
+                    top:0px;
+                    left:0px;
+
+                    width:350px;
+                    height:fit-content;
+
+                    display:flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    justify-content: center;
+                    align-items: center;
+
+
+                    border:2px solid var(--lightLightGray);
+                }
+
+                .linksBlock{
+                    margin-top:50px;
+                }
+
+                .linksBlock .link{
+                    line-height:20px;
+                }
+
+                .instagramLogoSection{
+                    width:50%;
+                    height:60px;
+
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    margin: 0px auto;
+                    margin-top:40px;
+
+                    background:none;
+                }
+
+                .instagramLogoSection .instagramLogo{
+                    position: relative;
+                    
+                    margin:0px auto;
+                    margin-top:40px;
+
+                    transform: scale(1.5);
+                }
+
+                .signupContentSection{
+                    position: relative;
+                    top:0px;
+                    left:0px;
+
+                    width:95%;
+                    height: fit-content;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    background:none;
+                }
+
+                .signupContainerTitle{
+                    width:80%;
+
+                    color: var(--gray);
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 20px;
+                    font-family:var(--instagramFont);
+
+                    /* margin: 0 40px 10px;
+                    margin-left:0px; */
+
+                    text-align: center;
+                }
+
+                .inputsSection{
+                    width:80%;
+
+                    display:flex;
+                    flex-direction: column;
+
+                    margin-top:10px;
+
+                    background:none;
+                }
+                
+                .inputsSection input, .signupSubmitButton{
+                    height:20px;
+                    padding:9px 0px 7px 8px;
+
+                    font-size: 16px;
+
+                    margin-bottom:5px;
+
+                    outline: none;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+
+                    border:1.5px solid var(--lightLightGray);
+                    border-radius:2px;
+
+                    background: rgb(250, 250, 250);
+                }
+
+                .signupSubmitButton{
+                    height:35px;
+
+                    border:none;
+                    border-radius:10px;
+
+                    cursor:pointer;
+
+                    margin-top:15px;
+                    margin-bottom:30px;
+
+                    color: var(--white);
+                    font-family: var(--instagramFont);
+                    font-size: 16px;
+                    line-height: 14px;
+                    font-weight:bold;
+
+
+                    background:var(--blue);
+                }
+
+                .signupSubmitButton *{
+                    margin:0px;
+                }
+
+                .passwordResetLink{
+
+                    color:rgb(0,55,107);
+                    font-family: var(--instagramFont);
+                    text-decoration: none;
+                    text-align:center;
+                    font-size: 12px;
+                    line-height: 16px;
+
+                    margin-bottom:30px;
+                }
+
+                .loginOptionDiv{
+                    
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    width:350px;
+                    height:40px !important;
+
+                    padding:10px 0px;
+
+                    font-family: var(--instagramFont);
+
+                    border:2px solid var(--lightLightGray);
+
+                    margin-top: 25px ;
+
+                    background:none;
+                }
+
+                .loginOptionDiv h3{
+                    font-size:14px;
+                    font-weight: 500;
+                    line-height: 18px;
+                }
+
+                .loginOptionDiv h3 a{
+                    color:var(--blue);
+                    text-decoration: none;
+                }
+
+
+            </style>
+
+            <div class="pageContentWrapper">
+
+                <div class="pageContentDiv">
+                    <div class="signupContentSection">
+                        <div class="topSection">
+                            <div class="instagramLogoSection">
+                                <svg class="icon instagramLogo">
+                                    <use class="instagramIconMenusHidden" xlink:href="/static/icons/instagram.svg#instagramLogoPathMenusHidden"></use>
+                                </svg>
+                            </div>
+
+                            <h2 class="signupContainerTitle">
+                                Sign up to see photos and videos from your friends.
+                            </h2>
+                            <form class="inputsSection" action="/signup" method="POST">
+                                <input aria-label="Email address" placeholder="Email address" aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off" class="_aa4b _add6 _ac4d" dir="" type="email" value="{{ insertedEmail }}" name="email">
+                                <input aria-label="Full Name" aria-required="false" placeholder="Full Name" autocapitalize="sentences" autocorrect="off" class="_aa4b _add6 _ac4d" dir="" type="text" value="{{ insertedFullname }}" name="fullname">
+                                <input aria-label="Username" placeholder="Username" aria-required="true" autocapitalize="off" autocorrect="off" maxlength="30" class="_aa4b _add6 _ac4d" dir="" type="text" value="{{ insertedUsername }}" name="username">
+                                <input aria-label="Password" placeholder="Password" aria-required="true" autocapitalize="off" autocomplete="new-password" autocorrect="off" class="_aa4b _add6 _ac4d" type="password" value="{{ insertedPassword }}" name="password">
+                                <h2 class="errorMessage">
+                                    {{ data["signup_error_message"] }}
+                                </h2>
+                                <button type="submit" class="signupSubmitButton">Next</button>
+                            </form>
+                        </div>
+
+                        <div class="loginOptionDiv">
+                            <h3>Have an account? <a href="/login">Login</a> </h3>
+                        </div>
+
+                    </div>
+
+                    {% include '/imports/linksBlock.html'%}
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

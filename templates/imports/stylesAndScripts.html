@@ -4,10 +4,13 @@
 <!-- Styles -->
 <link rel="stylesheet" href= "{{ url_for('static', filename='pc/css/main.css' ) }}">
 <link rel="stylesheet" href= "{{ url_for('static', filename='pc/css/sideBar.css' ) }}">
+<link rel="stylesheet" href= "{{ url_for('static', filename='pc/css/homePost.css' ) }}">
+<link rel="stylesheet" href= "{{ url_for('static', filename='pc/css/followRecommendations.css' ) }}">
 
 <!-- Scripts -->
 <script src=" {{ url_for('static', filename='pc/js/dependencies/jquery.js') }}"></script>
 
 
-<script src=" {{ url_for('static', filename='pc/js/classes.js') }}"></script>
+<script src=" {{ url_for('static', filename='pc/js/classes.js') }}" defer></script>
+<script src=" {{ url_for('static', filename='pc/js/functions.js') }}" defer></script>
 <script src=" {{ url_for('static', filename='pc/js/main.js') }}" defer></script>

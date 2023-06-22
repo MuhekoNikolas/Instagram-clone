@@ -181,6 +181,10 @@
     .searchResultBanner::after{
         left:1.9px !important;
     }
+    
+    .searchResultBanner .pfp{
+        left:2px;
+    }
 
     .searchResultInfo{
         position:relative;
@@ -235,7 +239,7 @@
             {% set username = (data["randomUserNames"]) | random %}
         <div class="searchResult">
             <div class="searchResultBanner">
-
+                <div class="pfp insertAfterPfpHere"></div>
             </div>
         
             <div class="searchResultInfo">

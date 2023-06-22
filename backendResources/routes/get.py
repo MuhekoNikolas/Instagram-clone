@@ -6,16 +6,30 @@ from ..functions import getCurrentSite
 
 randomUserNames = ["Niko", "Micheal", "John", "hagrid", "Jason", "Julie", "Jane", "Miok"]
 
-def initGetRoutes(app):
+def initGetRoutes(app, DB):
 
     #Home
     @app.get("/")
     def mainGet():
         currentSite = getCurrentSite(request)
-
-
         return render_template("/mainSites/home.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
     
+
+    #Signup
+    @app.get("/signup")
+    def signupGet():
+        currentSite = getCurrentSite(request)
+        return render_template("/mainSites/signup.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
+    
+
+    #Login
+    @app.get("/login")
+    def loginGet():
+        currentSite = getCurrentSite(request)
+        return render_template("/mainSites/login.html", data={"currentSite":currentSite, "request":request, "randomUserNames": randomUserNames})
+    
+
+
 
     @app.get("/explore")
     def exploreGet():

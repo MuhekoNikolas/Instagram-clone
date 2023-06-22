@@ -1,0 +1,684 @@
+
+
+
+
+.profilePreview{
+    position: relative;
+    top:20px;
+    left:45px;
+
+    width:400px;
+    height:350px;
+    min-width:400px;
+    min-height:350px;
+    max-height:350px;
+    max-width:400px;
+
+    margin-bottom: -310px;
+    margin-right:-400px;
+
+    z-index:200;
+
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+    row-gap:5px;
+
+    visibility:hidden;
+
+    box-shadow:-1px 2px 20px rgba(0,0,0,0.3);
+
+    background:white;
+}
+
+.profilePreview .profileBlock::before{
+    position: relative;
+    top:3px !important;
+}
+
+.profilePreview .profileBlock .pfp{
+    position: relative;
+    top:1.5px !important;
+}
+
+
+.profilePreview > div{
+    width:100%;
+    min-height:50px;
+
+    background:green;
+}
+
+.userInfoPreview{
+    width: calc( 100% - 30px ) !important;
+    height:80px;
+
+    padding:0px 15px;
+
+    display:flex;
+    justify-content: start;
+    align-items: center;
+
+    background:none !important;
+}
+
+.userInfoPreview .profileBlock{
+    width:50px;
+    height:50px;
+    min-width:50px;
+    min-height:50px;
+    max-width:50px;
+    max-height:50px;
+
+    margin-right:20px;
+}
+
+.userInfoPreview .userInfoBlock h3 :first-child{
+    font-size:20px;
+    line-height:20px;
+
+    margin-bottom:5px;
+
+    font-weight:700;
+}
+
+.userInfoPreview .userInfoBlock h4{
+    font-size:14px;
+    line-height:20px;
+
+    color:var(--gray);
+}
+
+.userInfoPreview .badgesSection{
+    margin-left:5px;
+}
+
+.userInfoPreview .badgesSection span{
+    position:relative;
+    top:5px;
+
+    transform: scale(1.3);
+}
+
+
+.userStatsPreview{
+
+    width:95% !important;
+
+    height:50px;
+
+    display:grid;
+    grid-template-columns: repeat(3, calc( 95% / 3) );
+    justify-content: center;
+    grid-gap:10px;
+
+    margin:0px auto;
+
+    background: none !important;
+
+}
+
+.userStatsPreview > div{
+    position:Relative;
+
+    display:flex;
+    flex-direction: column;
+    row-gap: 0px;
+    justify-content: center;
+    align-items: center;
+
+    width:100%;
+    height:50px;
+
+    background:none;
+}
+
+.userStatsPreview > div span{
+    font-family: var(--instagramFont);
+}
+
+.statCount{
+    font-weight:600;
+}
+
+.userPostsPreview{
+    height:130px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+
+    margin-top:5px;
+
+    background:none !important;
+}
+
+.userPostsPreview > div{
+    position:relative;
+    width:130px;
+    height:125px;
+
+    background:gold;
+}
+
+.userActionsPreview{
+    margin-top:5px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    background: none !important;
+}
+
+.buttonsContainer{
+    width:93%;
+    height:40px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    column-gap:5px;
+
+    background:none;
+}
+
+.buttonsContainer > div{
+    width:fit-content;
+    min-width:180px;
+    max-width:200px;
+    height:35px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:8px;
+
+    cursor: pointer;
+
+
+    background:none;
+}
+
+.buttonsContainer > div h3{
+    font-size:15px;
+    font-family:var(--instagramFont);
+    font-weight:500 !important;
+}
+
+.buttonsContainer > div svg,     .buttonsContainer > div svg use{
+    position:relative;
+    top:2.5px;
+
+    transform: scale(.9);
+
+    width:24px;
+    height:24px;
+
+    stroke:var(--white);
+}
+
+
+
+.homePost{
+    position:relative;
+
+    width:500px;
+    height:auto;
+    min-height:600px;
+
+    display:block;
+    margin:0px auto;
+
+    margin-bottom:10px;
+
+    border-bottom:1px solid var(--lightGray);
+
+    background:white;
+}
+
+
+.homePost > :not(.profilePreview){
+
+    width:100%;
+
+    height:fit-content;
+    min-height:30px;
+
+    margin:10px auto 0px auto;
+
+    background:green;
+}
+
+.postAuthorAndInfoSection{
+    height:fit-content;
+
+    display:flex;
+    flex-direction: row;
+
+    background:none !important;
+}
+
+.postAuthorBlock{
+    height:40px !important;
+    width:100%;
+}
+
+.postAuthorBlock .infoSection{
+
+    display:flex;
+    flex-direction: row;
+
+
+    width:fit-content;
+    height:40px !important;
+
+}
+
+.infoSection:hover .profilePreview, .recommendedUserBlock .userInfoBlock:hover .profilePreview{
+    animation-name: showProfilePreviewAnimation;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+.postAuthorBlock .profileBlock, .profilePreview .profileBlock{
+    width:34px;
+    height:34px;
+    min-width:34px;
+    min-height:34px;
+    max-width:34px;
+    max-height:34px;
+
+    z-index:2;
+
+    margin-right:10px;
+
+    background:none;
+}
+
+.postAuthorBlock .profileBlock, .storiesSection .stories .story .authorPfp, .searchResultBanner, .profilePreview .profileBlock{
+    display: flex !important;
+    justify-content: center;
+    position: relative;
+}
+
+.postAuthorBlock .profileBlock::before, .storiesSection .stories .story .authorPfp::before, .searchResultBanner::before, .profilePreview .profileBlock::before{
+    content:"";
+    position:absolute;
+    top:4px;
+    left:3px;
+
+    width: inherit;
+    height: inherit;
+    min-width:inherit;
+    min-height:inherit;
+    max-width:inherit;
+    max-height:inherit;
+
+    display: inline;
+
+    border-radius: 50px;
+    background-image: linear-gradient(to right, orange, purple) !important;
+    background-clip: padding-box !important;
+    box-shadow: 0 0 0 2px transparent inset;
+
+    transform:scale(1.1);
+
+    background:none;
+}
+
+.postAuthorBlock .profileBlock::before, .profilePreview .profileBlock::before{
+    left:2.5px;
+    transform:scale(1.15);
+}
+
+
+
+.postAuthorBlock .profileBlock .pfp, .storiesSection .stories .story .authorPfp .pfp, .searchResultBanner .pfp, .profilePreview .profileBlock .pfp{
+    position:absolute;
+    top:2.8px;
+    left:1.5px;
+
+    width: inherit;
+    height: inherit;
+    min-width:inherit;
+    min-height:inherit;
+    max-width:inherit;
+    max-height:inherit;
+
+    border:1.5px solid white;
+    border-radius:50px;
+
+    z-index:10;
+
+    background:rgb(255, 129, 219);
+    background-size:contain !important;
+}
+
+.postAuthorBlock .profileBlock .pfp, .authorPfp .pfp, .searchResultBanner .pfp, .profilePreview .profileBlock .pfp{
+    left:1.2px;
+}
+
+.postAuthorBlock .userInfoBlock{        
+    min-width:fit-content !important;
+}
+
+.postAuthorBlock .userInfoBlock h3 {
+    display:flex;
+}
+
+.postAuthorBlock .userInfoBlock h3 :first-child{
+    display:flex;
+    color:var(--lightBlack);
+}
+
+.postAuthorBlock .userInfoBlock h3 span{
+    color:var(--gray);
+}
+
+.badgesSection{
+    display:flex;
+}
+
+.badgesSection span{
+    position:relative;
+    top:3px;
+
+    margin-left:3px;
+
+    display:flex;
+    width:12px;
+    height:12px;
+}
+
+.verifiedBadge{
+    background: url("/static/images/iconsSprite2.png");
+    background-size: 440px 411px;
+    background-position: -428px -142px;
+}
+
+
+.seperatorDot{
+    width:12px;
+    height:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50px;
+
+    font-size:5em;
+
+    background:none;
+}
+
+.postAuthorBlock .userInfoBlock h4{
+    color:black;
+    font-size:12px;
+    font-weight:400;
+    line-height:16px;
+}
+
+.postOptionsBlock{
+    margin-left:auto;
+}
+
+.postOptionsBlock svg{
+    width:24px;
+    height:24px;
+    
+    cursor:pointer;
+}
+
+.postContentSection{
+    position: relative;
+
+    height:fit-content !important;
+    min-height:600px;
+
+    background:none !important;
+}
+
+.postContentSection .postPosts{
+    position:relative;
+
+    height:fit-content;
+    min-height:400px;
+    max-height:700px;
+
+    border-radius:5px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    background:blue;
+}
+
+.postContentSection .postPosts .postControlButtons.next{
+    position:relative;
+
+    left:20px;
+}
+
+
+.postContentSection .postPostsSlide{
+    position: relative;
+    top:0px;
+    left:0px;
+
+    width:100%;
+    min-width:500px;
+
+    height:fit-content;
+    min-height:410px;
+    max-height:700px;
+
+    margin-left:-45px;
+    margin-right:-45px;
+
+    display:flex;
+    column-gap: 0px;
+
+    overflow:hidden;
+    overflow-x:auto;
+
+    padding: 0px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    background:var(--white);
+}
+
+.postContentSection .postPostsSlide > *{
+    width:100% !important;
+    min-width:500px !important;
+    max-width:100%;
+
+    height:100%;
+    min-height:401px;
+    max-height:700px;
+
+    line-height:0px !important;
+
+    scroll-snap-align: start;
+
+    background:var(--white);
+
+    margin:0px;
+
+    object-fit: contain;
+
+    /* background-repeat:no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important; */
+}
+
+.postContentSection .postPostsSlideDots{
+    position: absolute;
+    bottom:10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width:fit-content;
+    min-width:80px;
+    height:15px;
+
+    display:flex;
+    gap:3px;
+    justify-content: center;
+    align-items: center;
+
+    margin:0px auto;
+
+    background:none;
+}
+
+.postContentSection .postPostsSlideDots .postPostsSlideDot{
+    width:6px;
+    height:6px;
+
+    display:flex;
+
+    border-radius:50px;
+
+    /* background:var(--lightLightGray); */
+    background:gray;
+}
+
+.postContentSection .postPostsSlideDots .postPostsSlideDot.active{
+    background:var(--white);
+}
+
+
+
+.postContentSection .postLikesAndCommentButtons{
+    height:80px;
+
+    display:flex;
+    flex-direction: column;
+
+    background:none !important;
+}
+
+.postContentSection .postLikesAndCommentButtons .buttonsSection{
+    height:45px;
+
+    display:flex;
+    align-items:center;
+
+    margin:0px;
+    margin-top:5px;
+}
+
+.postContentSection .postLikesAndCommentButtons .buttonsSection div{
+    width:50px;
+    height:45px;
+
+    display:flex;
+    gap:15px;
+    align-items: center;
+
+    background:none;
+}
+
+.postContentSection .postLikesAndCommentButtons .buttonsSection div span svg{
+    width:24px;
+    height:24px;
+
+    cursor:pointer;
+}
+
+.postContentSection .postLikesAndCommentButtons .buttonsSection .left{
+    width:125px;
+}
+
+.postContentSection .postLikesAndCommentButtons .buttonsSection .right{
+    width:30px;
+
+    margin-left:auto;
+}
+
+.likesSection{
+    margin:0px;
+
+    color:black;
+    font-size:14px;
+    line-height:18px;
+    font-weight:600;
+    font-family:var(--instagramFont);
+
+}
+
+.postCaptionAndCommentsSection{
+    margin-top:-5px !important;
+
+    display:flex;
+    flex-direction:column;
+
+    height:fit-content !important;
+
+    background:white !important;
+}
+
+.postCaption{
+    color:black;
+    font-size:14px;
+    font-weight:400;
+    font-family:var(--instagramFont);
+}
+
+.postCaption .postAuthorName{
+    font-weight:600;
+}
+
+.viewAllCommentsSentence{
+    color:var(--gray) !important;
+
+    font-size:14px;
+    line-height:18px;
+    font-weight:400;
+    font-family:var(--instagramFont);
+
+    margin:10px 0px;
+}
+
+.postAddCommentInput, .postAddCommentInput:focus-visible{
+    position:relative;
+
+    border-radius:0px;
+
+    height:auto;
+    min-height:14px !important;
+    max-height:80px;
+
+    border:none;
+    outline: none;
+
+    color:black;
+    font-family: var(--instagramFont);
+    font-size:14px;
+
+    resize:none;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    background:none;
+}
+
+.postAddCommentInput::-webkit-scrollbar, .postAddCommentInput:focus-visible::-webkit-scrollbar{
+    width:1px;
+}
+

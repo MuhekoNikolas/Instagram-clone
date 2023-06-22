@@ -1,9 +1,5 @@
 
 
-function redirect(where="/"){
-    location.href = where
-}
-
 
 activeSideMenuLinkElement = $(".sideBarLink.active")[0] || $("<div>")
 

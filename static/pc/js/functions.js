@@ -1,48 +1,73 @@
-
-
+/**
+ * Function to create a post slider inside a given post node.
+ * @param {HTMLElement} postNode - The HTML element where the post slider will be created.
+ * @returns {Object} - The created PostsScrollContainerWithButtons instance.
+ */
 function createPostSlider(postNode){
 
+    /**
+     * Callback function for the post slider's scroll event.
+     * It updates scroll dots and adjusts container height based on first visible element.
+     */
     function scrollCallBack(){
-        this.updateScrollDots()
-        firstElement = this.getFirstElementInView()
-        //console.log(firstElement)
-        if(this.contentContainer.contains(firstElement) == false){
-            firstElement.naturalHeight = 400
-            firstElement.naturalWidth = 400
+        this.updateScrollDots();
+        let firstElement = this.getFirstElementInView();
+
+        // Check if the first visible element is contained in the content container
+        if(!this.contentContainer.contains(firstElement)){
+            // Simulate setting naturalHeight and naturalWidth for firstElement
+            firstElement.naturalHeight = 400;
+            firstElement.naturalWidth = 400;
         }
 
-        //console.log(firstElement.naturalHeight,firstElement.naturalWidth)
-
-        this.contentContainer.style.height = `${(firstElement.naturalWidth/firstElement.naturalHeight) / this.contentContainer.getBoundingClientRect().width}px`
-        
+        // Adjust the container height based on aspect ratio of firstElement
+        this.contentContainer.style.height = `${(firstElement.naturalWidth / firstElement.naturalHeight) / this.contentContainer.getBoundingClientRect().width}px`;
     }
 
-    _ = new PostsScrollContainerWithButtons($(postNode).find(".postControlButtons.prev")[0] , $(postNode).find(".insertPostMediaHere")[0] , $(postNode).find(".postControlButtons.next")[0], null, $(postNode).find(".postPostsSlideDots")[0] , 500)
-    _.onScrollCallBackFunction = scrollCallBack.bind(_)
-    _.onScrollCallBackFunction()
+    // Create PostsScrollContainerWithButtons instance and bind scroll callback
+    let _ = new PostsScrollContainerWithButtons(
+        $(postNode).find(".postControlButtons.prev")[0],
+        $(postNode).find(".insertPostMediaHere")[0],
+        $(postNode).find(".postControlButtons.next")[0],
+        null,
+        $(postNode).find(".postPostsSlideDots")[0],
+        500
+    );
 
+    _.onScrollCallBackFunction = scrollCallBack.bind(_);
+    _.onScrollCallBackFunction(); // Invoke scroll callback initially
 
-    return _
+    return _; // Return the PostsScrollContainerWithButtons instance
 }
 
-
-
+/**
+ * Function to redirect to a specified location.
+ * @param {string} where - The URL where the page should be redirected.
+ */
 function redirect(where="/"){
-    location.href = where
+    location.href = where;
 }
 
 
 
 
+/**
+ * Creates a new post element in the DOM based on the provided postInfo.
+ * Populates various elements within the post structure with data from postInfo.
+ *
+ * @param {Object} postInfo - The object containing information about the post.
+ *                           It should include author details, post content, media, etc.
+ */
 function createPost(postInfo){
 
-    classes = [
+    // List of classes used to identify elements within the post structure
+    let classes = [
         "insertAfterPfpHere", "insertUsernameHere", "insertBadgesHere", "insertDisplayNameHere", "insertUserPostCountHere", "insertUserFollowerCountHere", "insertUserFollowingCountHere", "insertUserPostMediaHere",
         "insertPostCreatedAtPeriodHere", "insertPostDescriptionHere", "insertPostMediaHere", "insertPostSlideOutDotsHere", "postLikeButton", "postCommentButton", "postShareButton", "postSaveButton", "insertPostLikeCountHere",
         "insertPostCaptionHere", "insertPostCommentCountHere"
-    ]
+    ];
 
-
+    // HTML template for creating a new post element
     homePostHTML = `
         <div class="homePost">
         <div class="postAuthorAndInfoSection">
@@ -185,70 +210,95 @@ function createPost(postInfo){
     `
 
 
-    parser = new DOMParser();
-    doc = parser.parseFromString(homePostHTML, 'text/html');
+    // Create a DOMParser instance
+    let parser = new DOMParser();
 
-    postNode = doc.body.firstChild
+    // Parse the homePostHTML string into a document
+    let doc = parser.parseFromString(homePostHTML, 'text/html');
 
-    $(postNode).find(".insertUsernameHere").text(postInfo.author.username)
-    $(postNode).find(".insertDisplayNameHere").text(postInfo.author.displayName)
-    $(postNode).find(".insertAfterPfpHere").css("background", `url(${postInfo.author.pfp}`)
+    // Get the first child of the body element from the parsed document
+    let postNode = doc.body.firstChild;
 
+    // Populate the postNode with data from postInfo using jQuery
+    $(postNode).find(".insertUsernameHere").text(postInfo.author.username);
+    $(postNode).find(".insertDisplayNameHere").text(postInfo.author.displayName);
+    $(postNode).find(".insertAfterPfpHere").css("background", `url(${postInfo.author.pfp})`);
 
-    $(postNode).find(".insertPostDescriptionHere").text(postInfo.description)
-    $(postNode).find(".insertPostLikeCountHere").text(postInfo.likes.length.toLocaleString('en-US', {style:"decimal"}))
-    $(postNode).find(".insertPostCommentCountHere").text(postInfo.comments.length.toLocaleString('en-US', {style:"decimal"}))
+    $(postNode).find(".insertPostDescriptionHere").text(postInfo.description);
+    $(postNode).find(".insertPostLikeCountHere").text(postInfo.likes.length.toLocaleString('en-US', { style: "decimal" }));
+    $(postNode).find(".insertPostCommentCountHere").text(postInfo.comments.length.toLocaleString('en-US', { style: "decimal" }));
 
+    $(postNode).find(".insertUserPostCountHere").text(postInfo.author.posts.length.toLocaleString('en-US', { style: "decimal" }));
+    $(postNode).find(".insertUserFollowerCountHere").text(postInfo.author.followers.length.toLocaleString('en-US', { style: "decimal" }));
+    $(postNode).find(".insertUserFollowingCountHere").text(postInfo.author.following.length.toLocaleString('en-US', { style: "decimal" }));
 
-    $(postNode).find(".insertUserPostCountHere").text(postInfo.author.posts.length.toLocaleString('en-US', {style:"decimal"}))
-    $(postNode).find(".insertUserFollowerCountHere").text(postInfo.author.followers.length.toLocaleString('en-US', {style:"decimal"}))
-    $(postNode).find(".insertUserFollowingCountHere").text(postInfo.author.following.length.toLocaleString('en-US', {style:"decimal"}))
+    $(postNode).find(".insertPostCreatedAtPeriodHere").text(postInfo.createdAt);
+    $(postNode).find(".insertPostCaptionHere").text(postInfo.caption);
 
+    // Append badges to the post
+    postInfo.author.badges.forEach(badge => {
+        $(postNode).find(".insertBadgesHere").append(badge);
+    });
 
-    $(postNode).find(".insertPostCreatedAtPeriodHere").text(postInfo.createdAt) 
-    $(postNode).find(".insertPostCaptionHere").text(postInfo.caption) 
-    
+    // Append media elements and slide dots to the post
+    postInfo.media.forEach((mediaInfo, index) => {
+        let mediaElement = createPostMediaElement(mediaInfo);
+        $(postNode).find(".insertPostMediaHere").append(mediaElement);
 
-    postInfo.author.badges.forEach(badge=>{
-        $(postNode).find(".insertBadgesHere").append(badge)
-        //console.log(badge)
-    })
-
-    postInfo.media.forEach(mediaInfo=>{
-        mediaElement = createPostMediaElement(mediaInfo)
-        $(postNode).find(".insertPostMediaHere").append(mediaElement)
-
-        //console.log(postInfo.media.indexOf(mediaInfo) == 0)
-
-        if( postInfo.media.indexOf(mediaInfo) < 1 ){
-            $(postNode).find(".postPostsSlideDots").append($('<div class="postPostsSlideDot active"></div>'))
+        // Add active class to the first slide dot
+        if (index === 0) {
+            $(postNode).find(".postPostsSlideDots").append($('<div class="postPostsSlideDot active"></div>'));
         } else {
-            $(postNode).find(".postPostsSlideDots").append($('<div class="postPostsSlideDot"></div>'))
+            $(postNode).find(".postPostsSlideDots").append($('<div class="postPostsSlideDot"></div>'));
         }
+    });
 
-    })
+    // Create and initialize the post slider
+    let _ = createPostSlider(postNode);
 
+    // Append the postNode to .postsSection if it exists
+    if ($(".postsSection").children().length > 0) {
+        $(postNode).insertBefore($(".postsSection").children().first());
+    } else {
+        $(".postsSection").append(postNode);
+    }
 
-    _ = createPostSlider(postNode)
-
-    //console.log($(".postsSection")[0].children)
-    Array.from($(".postsSection")[0].children).length > 0 ? $(postNode).insertBefore($(".postsSection").find("> :first-child")) : $(".postsSection").append(postNode)
 }
 
 
+/**
+ * Creates a DOM element for displaying media within a post.
+ *
+ * @param {Object} mediaInfo - Information about the media to be displayed.
+ *                             Should include a 'mediaSrc' property with the URL of the media.
+ * @returns {HTMLElement} The created DOM element representing the media.
+ */
 function createPostMediaElement(mediaInfo){
 
-    _elImageHTML = `<img src="${mediaInfo.mediaSrc}" class="postImage" style=""></img>`
+    // HTML string for an image element with the specified media source
+    let _elImageHTML = `<img src="${mediaInfo.mediaSrc}" class="postImage" style=""></img>`;
 
-    parser = new DOMParser();
-    doc = parser.parseFromString(_elImageHTML, 'text/html');
+    // Create a DOMParser instance
+    let parser = new DOMParser();
 
-    _el = doc.body.firstChild
+    // Parse the _elImageHTML string into a document
+    let doc = parser.parseFromString(_elImageHTML, 'text/html');
 
-    return _el
+    // Get the first child of the body element from the parsed document
+    let _el = doc.body.firstChild;
+
+    return _el;
 }
 
 
+/**
+ * Creates a follow suggestion node based on user information.
+ *
+ * @param {Object} userInfo - Information about the user to display in the suggestion node.
+ *                            Should include properties like 'username', 'displayName', 'pfp', 'posts', 'followers', 'following', and 'badges'.
+ * @param {string} followSuggestionHTML - HTML structure for the follow suggestion node template.
+ * @returns {HTMLElement} The created follow suggestion node.
+ */
 function createFollowSuggestion(userInfo){
 
     followSuggestionHTML = `
@@ -336,93 +386,131 @@ function createFollowSuggestion(userInfo){
             </div>
     `
 
-    parser = new DOMParser();
-    doc = parser.parseFromString(followSuggestionHTML, 'text/html');
+    // Parse the follow suggestion HTML into a document
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(followSuggestionHTML, 'text/html');
 
-    followRecommendationNode = doc.body.firstChild
+    // Get the first child of the body element from the parsed document
+    let followRecommendationNode = doc.body.firstChild;
 
-    $(followRecommendationNode).find(".insertUsernameHere").text(userInfo.username)
-    $(followRecommendationNode).find(".insertDisplayNameHere").text(userInfo.displayName)
-    $(followRecommendationNode).find(".insertAfterPfpHere").css("background", `url(${userInfo.pfp}`)
+    // Populate the follow recommendation node with user information
+    $(followRecommendationNode).find(".insertUsernameHere").text(userInfo.username);
+    $(followRecommendationNode).find(".insertDisplayNameHere").text(userInfo.displayName);
+    $(followRecommendationNode).find(".insertAfterPfpHere").css("background", `url(${userInfo.pfp}`);
 
+    $(followRecommendationNode).find(".insertUserPostCountHere").text(userInfo.posts.length.toLocaleString('en-US', {style:"decimal"}));
+    $(followRecommendationNode).find(".insertUserFollowerCountHere").text(userInfo.followers.length.toLocaleString('en-US', {style:"decimal"}));
+    $(followRecommendationNode).find(".insertUserFollowingCountHere").text(userInfo.following.length.toLocaleString('en-US', {style:"decimal"}));
 
-    $(followRecommendationNode).find(".insertUserPostCountHere").text(userInfo.posts.length.toLocaleString('en-US', {style:"decimal"}))
-    $(followRecommendationNode).find(".insertUserFollowerCountHere").text(userInfo.followers.length.toLocaleString('en-US', {style:"decimal"}))
-    $(followRecommendationNode).find(".insertUserFollowingCountHere").text(userInfo.following.length.toLocaleString('en-US', {style:"decimal"}))
+    userInfo.badges.forEach(badge => {
+        $(followRecommendationNode).find(".insertBadgesHere").append(badge);
+    });
 
+    // Append the populated follow recommendation node to the container
+    $(".followRecommendations").append(followRecommendationNode);
 
-    userInfo.badges.forEach(badge=>{
-        $(followRecommendationNode).find(".insertBadgesHere").append(badge)
-    })
-
-    $(".followRecommendations").append(followRecommendationNode)
-    return followRecommendationNode
+    return followRecommendationNode;
 }
 
 
 
 
-// Function to generate a random username
+/**
+ * Generates a random username in the format "userXXXX" where XXXX is a random number between 1000 and 9999.
+ * @returns {string} Randomly generated username.
+ */
 function getRandomUsername() {
-    // Generate a random number between 1000 and 9999
     const randomNumber = Math.floor(Math.random() * 9000) + 1000;
     return "user" + randomNumber;
-  }
-  
-  // Function to generate a random display name matching the username
-  function getRandomDisplayName(username="4") {
-    // Use the username and append a random number between 10 and 99
+}
+
+/**
+ * Generates a random display name in the format "User XX" where XX is a random number between 10 and 99.
+ * @param {string} username - Optional username string (default is "4").
+ * @returns {string} Randomly generated display name.
+ */
+function getRandomDisplayName(username = "4") {
     const randomNumber = Math.floor(Math.random() * 90) + 10;
     return "User " + randomNumber;
-  }
-  
-  // Function to fetch a random image URL from Lorem Picsum
-  async function getRandomImage() {
+}
+
+/**
+ * Asynchronously fetches a random image URL from Lorem Picsum based on random dimensions between 400x400 and 700x700 pixels.
+ * @returns {Promise<string>} Promise that resolves to the URL of a random image from Lorem Picsum.
+ */
+async function getRandomImage() {
     const response = await fetch(`https://picsum.photos/${Math.floor(Math.random() * ((700 - 400) / 100 + 1)) * 100 + 400}/${Math.floor(Math.random() * ((700 - 400) / 100 + 1)) * 100 + 400}`);
     return response.url;
-  }
-  
+}
 
-async function generatePosts(howMany){
-    // Generate random data for the postInfo object
-    for(x=0; x<howMany; x++){    
+/**
+ * Generates a specified number of random posts by creating instances of RandomPostInfoObject,
+ * populating them with random data, generating random media, and then displaying each post.
+ * @param {number} howMany - Number of random posts to generate.
+ */
+async function generatePosts(howMany) {
+    try {
+        for (let x = 0; x < howMany; x++) {
+            const postInfoObject = new RandomPostInfoObject();
 
-      postInfoObject = new RandomPostInfoObject()
+            // Populate postInfoObject asynchronously with random data
+            await postInfoObject.populateInfoObject();
 
-      await postInfoObject.populateInfoObject()
-      postInfoObject.postInfo.media = await postInfoObject.generateMedia()
+            // Generate random media for the post
+            postInfoObject.postInfo.media = await postInfoObject.generateMedia();
 
-
-      createPost(postInfoObject.postInfo)
+            // Create the post using the generated postInfo
+            createPost(postInfoObject.postInfo);
+        }
+    } catch (error) {
+        console.error('Error generating posts:', error);
     }
 }
   
 
-async function generateFollowRecommendations(howMany){
-    for(x=0; x<howMany; x++){    
+/**
+ * Asynchronously generates a specified number of random follow recommendations by creating instances of RandomUserInfoObject,
+ * populating them with random data, and displaying each recommendation.
+ * @param {number} howMany - Number of random follow recommendations to generate.
+ */
+async function generateFollowRecommendations(howMany) {
+    try {
+        for (let x = 0; x < howMany; x++) {
+            const userInfoObject = new RandomUserInfoObject();
 
-        userInfoObject = new RandomUserInfoObject()
-  
-        await userInfoObject.populateInfoObject()
-        //userInfoObject.userInfo.media = await userInfoObject.generateMedia()
-  
-  
-        createFollowSuggestion(userInfoObject.userInfo)
+            // Populate userInfoObject asynchronously with random data
+            await userInfoObject.populateInfoObject();
+
+            // Create the follow suggestion using the generated userInfo
+            createFollowSuggestion(userInfoObject.userInfo);
+        }
+    } catch (error) {
+        console.error('Error generating follow recommendations:', error);
     }
 }
 
+/**
+ * Asynchronously generates random user information.
+ * @returns {Promise<Object>} An object containing randomly generated user information.
+ */
+async function getRandomUserInfo() {
+    try {
+        const userInfo = {
+            id: "1",
+            username: getRandomUsername(),
+            displayName: getRandomDisplayName(),
+            pfp: await getRandomImage(),
+            posts: Array.from({ length: Math.round(Math.random() * 40) + 1 }, () => Math.random()),
+            followers: Array.from({ length: Math.round(Math.random() * 10000) + 1 }, () => Math.random()),
+            following: Array.from({ length: Math.round(Math.random() * 10) + 1 }, () => Math.random()),
+            badges: ['<span class="verifiedBadge"></span>'],
+            verified: true,
+            email_verified: false,
+        };
 
-async function getRandomUserInfo(){
-    return {
-        id: "1",
-        username: getRandomUsername(),
-        displayName: getRandomDisplayName(),
-        pfp: await getRandomImage(),
-        posts: Array.from({ length: Math.round(Math.random(0)*40)+1 }, () => Math.random()),
-        followers: Array.from({ length: Math.round(Math.random(0)*10000)+1 }, () => Math.random()),
-        following: Array.from({ length: Math.round(Math.random(0)*10)+1 }, () => Math.random()),
-        badges: ['<span class="verifiedBadge"></span>'],
-        verified: true,
-        email_verified: false,
+        return userInfo;
+    } catch (error) {
+        console.error('Error generating random user info:', error);
+        throw error; // Re-throw the error for handling at a higher level
     }
 }
